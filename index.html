@@ -16,7 +16,7 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        ink:    '#5A4A52',                              // gris ciruela cálido
+        ink:    '#5A4A52',
         rose:   { DEFAULT:'#D98FA3', dark:'#C2748A', deep:'#9E5A6E', light:'#F0C4D0', soft:'#FCEFF3' },
         blush:  '#FDF5F7',
         cream:  '#FFFCFB',
@@ -72,11 +72,185 @@ tailwind.config = {
   .field:focus { border-color:#D98FA3; box-shadow:0 0 0 4px rgba(217,143,163,.15); }
   .field::placeholder { color:#C6B0B9; }
 
-  /* Floating WhatsApp */
-  .fab { position:fixed; bottom:1.5rem; right:1.5rem; z-index:50; width:3.7rem; height:3.7rem; border-radius:9999px; background:#25D366; color:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 15px 35px -10px rgba(37,211,102,.55); transition:.3s; }
+  /* ══════════ FLOATING WHATSAPP ══════════ */
+  .fab {
+    position:fixed; bottom:1.5rem; right:1.5rem; z-index:50;
+    width:3.7rem; height:3.7rem; border-radius:9999px;
+    background:#25D366; color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 15px 35px -10px rgba(37,211,102,.55);
+    transition:.3s;
+  }
   .fab:hover { transform:scale(1.08) rotate(-6deg); background:#1da15a; }
-  .fab::after { content:''; position:absolute; inset:-6px; border-radius:9999px; border:2px solid #25D366; opacity:.32; animation: pulse 2.4s infinite; }
+  .fab::after {
+    content:''; position:absolute; inset:-6px; border-radius:9999px;
+    border:2px solid #25D366; opacity:.32; animation: pulse 2.4s infinite;
+  }
   @keyframes pulse { 0%{transform:scale(.9);opacity:.6} 70%{transform:scale(1.25);opacity:0} 100%{opacity:0} }
+
+  /* ══════════ MOOD BUDDY · flotante grande ══════════ */
+  .mood-buddy {
+    position: fixed;
+    bottom: 6.3rem;
+    right: 1.65rem;
+    z-index: 51;
+    width: 3.15rem;
+    height: 3.15rem;
+    border-radius: 9999px;
+    background: linear-gradient(145deg, #FFFCFB 0%, #FCEFF3 55%, #F0C4D0 100%);
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 14px 30px -12px rgba(194,116,138,.6), 0 0 0 1px rgba(240,196,208,.55) inset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    animation: buddyBob 3.4s ease-in-out infinite;
+    transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .mood-buddy:hover,
+  .mood-buddy:focus-visible {
+    transform: scale(1.14) translateY(-4px);
+    box-shadow: 0 22px 40px -14px rgba(194,116,138,.75);
+    outline: none;
+  }
+
+  .mood-ring {
+    position: absolute;
+    inset: -7px;
+    border-radius: 9999px;
+    border: 2px solid #E4A7B8;
+    opacity: .55;
+    animation: ringPulse 3.2s ease-out infinite;
+    pointer-events: none;
+  }
+  @keyframes ringPulse {
+    0%   { transform: scale(.82); opacity: .55; }
+    70%  { transform: scale(1.4);  opacity: 0;   }
+    100% { transform: scale(1.4);  opacity: 0;   }
+  }
+
+  /* ── Carita que cambia (compartida por flotante y mini) ── */
+  .mood-face {
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    will-change: transform, opacity;
+    transition: transform .3s cubic-bezier(.2,.7,.2,1), opacity .3s, color .4s;
+  }
+  .mood-face.swap {
+    animation: faceSwap .62s cubic-bezier(.2,.7,.2,1);
+  }
+  @keyframes faceSwap {
+    0%   { transform: scale(.45) rotate(-18deg); opacity: 0; }
+    55%  { transform: scale(1.18) rotate(6deg);  opacity: 1; }
+    100% { transform: scale(1)    rotate(0);     opacity: 1; }
+  }
+
+  /* Tamaño del flotante */
+  .mood-buddy .mood-face { font-size: 1.55rem; color: #C2748A; }
+
+  /* ── Versión MINI (navbar + footer) ── */
+  .mood-mini {
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    background: linear-gradient(145deg, #FFFCFB 0%, #FCEFF3 55%, #F0C4D0 100%);
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 8px 18px -8px rgba(194,116,138,.55), 0 0 0 1px rgba(240,196,208,.5) inset;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    animation: buddyBob 3.4s ease-in-out infinite;
+  }
+  .mood-mini .mood-face { font-size: 1.15rem; color: #C2748A; }
+
+  .mood-mini-ring {
+    position: absolute;
+    inset: -5px;
+    border-radius: 9999px;
+    border: 1.5px solid #E4A7B8;
+    opacity: .45;
+    animation: ringPulse 3.4s ease-out infinite;
+    pointer-events: none;
+  }
+
+  /* Variante para fondo oscuro (footer) */
+  .mood-mini.on-dark {
+    border-color: rgba(255,255,255,.35);
+    background: linear-gradient(145deg, #FFF6F9 0%, #FBE4EB 55%, #F0C4D0 100%);
+    box-shadow: 0 10px 22px -10px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.2) inset;
+  }
+  .mood-mini.on-dark .mood-mini-ring { border-color: rgba(255,255,255,.35); opacity: .35; }
+
+  /* Movimiento suave de flotación */
+  @keyframes buddyBob {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-4px); }
+  }
+  .mood-buddy { animation-name: buddyBobBig; }
+  @keyframes buddyBobBig {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-7px); }
+  }
+
+  /* Destellos alrededor (solo flotante) */
+  .mood-spark {
+    position: absolute;
+    color: #D9BC91;
+    font-size: .55rem;
+    opacity: 0;
+    pointer-events: none;
+    animation: sparkFloat 3.4s ease-in-out infinite;
+  }
+  .mood-spark.s1 { top: -2px;  left: -4px;  animation-delay: 0s;   }
+  .mood-spark.s2 { top: 6px;   right: -6px; animation-delay: .9s;  font-size:.45rem; }
+  .mood-spark.s3 { bottom: -3px; left: 4px; animation-delay: 1.8s; font-size:.5rem;  }
+  @keyframes sparkFloat {
+    0%, 100% { opacity: 0;   transform: translateY(0) scale(.6); }
+    45%      { opacity: .85; transform: translateY(-4px) scale(1); }
+  }
+
+  /* Globo de mensaje del flotante */
+  .mood-tooltip {
+    position: absolute;
+    right: calc(100% + .8rem);
+    top: 50%;
+    transform: translateY(-50%) translateX(10px) scale(.92);
+    background: #FFFCFB;
+    color: #5A4A52;
+    font-size: .74rem;
+    font-weight: 500;
+    line-height: 1.25;
+    padding: .55rem .9rem;
+    border-radius: .9rem;
+    white-space: nowrap;
+    box-shadow: 0 16px 34px -16px rgba(158,90,110,.55);
+    border: 1px solid #F9E6EC;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .32s cubic-bezier(.2,.7,.2,1);
+  }
+  .mood-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    width: 10px; height: 10px;
+    background: #FFFCFB;
+    border-right: 1px solid #F9E6EC;
+    border-top: 1px solid #F9E6EC;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  .mood-buddy:hover .mood-tooltip,
+  .mood-buddy:focus-visible .mood-tooltip {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0) scale(1);
+  }
 
   /* Underline decorativo */
   .eyebrow { display:inline-flex; align-items:center; gap:.55rem; font-size:.72rem; letter-spacing:.24em; text-transform:uppercase; font-weight:600; color:#C2748A; }
@@ -85,22 +259,18 @@ tailwind.config = {
 
   ::selection { background:#F0C4D0; color:#7E4658; }
 
-  /* Divisor orgánico */
   .divider { height:1px; background: linear-gradient(90deg, transparent, #F0D6DF, transparent); }
 
-  /* Nav link */
   .nav-link { position:relative; font-size:.9rem; font-weight:500; color:#6B5760; transition:.25s; }
   .nav-link:hover { color:#C2748A; }
   .nav-link::after { content:''; position:absolute; left:50%; bottom:-6px; height:2px; width:0; background:#D9BC91; transition:all .3s ease; transform:translateX(-50%); }
   .nav-link:hover::after { width:70%; }
 
-  /* Degradado texto */
   .gradient-text {
     background: linear-gradient(120deg,#D98FA3 0%,#D9BC91 100%);
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
 
-  /* Fondo con brillo suave */
   .soft-glow {
     background:
       radial-gradient(circle at 20% 30%, rgba(252,239,243,.95) 0%, transparent 55%),
@@ -109,7 +279,7 @@ tailwind.config = {
   }
 
   /* ══════════ CAPA DE SEGURIDAD ══════════ */
-  .toast-wrap { position:fixed; bottom:5.6rem; right:1.5rem; z-index:60; display:flex; flex-direction:column; align-items:flex-end; gap:.55rem; pointer-events:none; }
+  .toast-wrap { position:fixed; bottom:10.6rem; right:1.5rem; z-index:60; display:flex; flex-direction:column; align-items:flex-end; gap:.55rem; pointer-events:none; }
   .toast {
     display:flex; align-items:center; gap:.7rem; max-width:21rem;
     background:rgba(255,252,251,.97); backdrop-filter:blur(12px);
@@ -122,19 +292,27 @@ tailwind.config = {
   .toast.in { opacity:1; transform:none; }
   .toast i { color:#C2748A; font-size:.95rem; flex-shrink:0; }
 
-  /* Marca de agua sobre imágenes */
   .wm-layer {
     position:absolute; inset:0; z-index:12; pointer-events:none; opacity:.5;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='230' height='170'%3E%3Ctext x='12' y='100' transform='rotate(-26 115 85)' fill='%23ffffff' fill-opacity='0.5' font-family='Inter,sans-serif' font-size='13' font-weight='600' letter-spacing='2'%3EPS%20%C2%B7%20PAULA%20SERNA%3C/text%3E%3C/svg%3E");
     background-repeat:repeat;
   }
 
-  /* Imágenes protegidas */
   img { -webkit-user-drag:none; user-select:none; -webkit-user-select:none; }
 
   @media (prefers-reduced-motion: reduce) {
     * { animation:none !important; transition:none !important; }
     .reveal { opacity:1; transform:none; }
+    .mood-buddy, .mood-mini { animation:none; }
+  }
+
+  /* Ajuste móvil */
+  @media (max-width: 480px) {
+    .mood-buddy { width:2.9rem; height:2.9rem; bottom:6rem; right:1.5rem; }
+    .mood-buddy .mood-face { font-size:1.35rem; }
+    .mood-tooltip { display:none; }
+    .mood-mini { width:2.25rem; height:2.25rem; }
+    .mood-mini .mood-face { font-size:1.05rem; }
   }
 </style>
 </head>
@@ -143,6 +321,25 @@ tailwind.config = {
 
 <!-- ══════════ TOASTS DE SEGURIDAD ══════════ -->
 <div id="toastWrap" class="toast-wrap" aria-live="polite"></div>
+
+<!-- ══════════ MOOD BUDDY · flotante grande ══════════ -->
+<a href="https://wa.me/573053536173?text=Hola%20Paula%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita."
+   target="_blank" rel="noopener"
+   class="mood-buddy" id="moodBuddy"
+   aria-label="Estoy aquí para escucharte · Contactar por WhatsApp">
+
+  <span class="mood-ring" aria-hidden="true"></span>
+
+  <i class="fas fa-star mood-spark s1" aria-hidden="true"></i>
+  <i class="fas fa-heart mood-spark s2" aria-hidden="true"></i>
+  <i class="fas fa-sparkles mood-spark s3" aria-hidden="true"></i>
+
+  <span class="mood-face" aria-hidden="true">
+    <i class="fas fa-face-smile"></i>
+  </span>
+
+  <span class="mood-tooltip" id="moodTip">Estoy aquí para escucharte 💗</span>
+</a>
 
 <!-- ══════════ WHATSAPP FLOTANTE ══════════ -->
 <a href="https://wa.me/573053536173?text=Hola%20Paula%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita."
@@ -156,7 +353,11 @@ tailwind.config = {
     <div class="flex items-center justify-between h-[76px]">
 
       <a href="#inicio" class="flex items-center gap-3 group">
-        <span class="w-10 h-10 rounded-full bg-rose text-cream flex items-center justify-center font-serif text-lg font-semibold shadow-card group-hover:bg-rose-dark transition">P</span>
+        <!-- 🎭 Mood buddy mini en lugar de la "P" -->
+        <span class="mood-mini" aria-hidden="true">
+          <span class="mood-mini-ring"></span>
+          <span class="mood-face"><i class="fas fa-face-smile"></i></span>
+        </span>
         <span class="hidden sm:block leading-tight">
           <span class="block font-serif font-semibold text-[17px] text-ink">Paula Serna</span>
           <span class="block text-[10px] uppercase tracking-[0.28em] text-rose-dark/80 font-medium">Psicología</span>
@@ -195,12 +396,10 @@ tailwind.config = {
 
 <!-- ══════════ HERO ══════════ -->
 <section id="inicio" class="relative pt-32 md:pt-40 pb-20 md:pb-28 overflow-hidden soft-glow">
-  <!-- Decoración flotante -->
   <div class="absolute inset-0 -z-10 pointer-events-none">
     <div class="absolute top-0 right-0 w-[55%] h-full bg-petal/60 rounded-bl-[140px]"></div>
     <div class="absolute -top-20 -left-20 w-96 h-96 rounded-full bg-rose-soft/90 blur-3xl"></div>
     <div class="absolute bottom-10 left-1/3 w-72 h-72 rounded-full bg-blush blur-3xl"></div>
-    <!-- pequeñas estrellitas -->
     <i class="fas fa-star absolute top-40 left-10 text-gold/40 text-sm"></i>
     <i class="fas fa-heart absolute top-24 right-24 text-rose-light/70 text-sm"></i>
     <i class="fas fa-sparkles absolute bottom-32 right-16 text-gold/40 text-base"></i>
@@ -209,7 +408,6 @@ tailwind.config = {
   <div class="max-w-6xl mx-auto px-5 md:px-8">
     <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
-      <!-- Texto -->
       <div class="lg:col-span-6 xl:col-span-6 reveal">
         <span class="eyebrow mb-5">Psicóloga · Medellín & Online</span>
 
@@ -240,16 +438,13 @@ tailwind.config = {
         </div>
       </div>
 
-      <!-- Foto -->
       <div class="lg:col-span-6 xl:col-span-6 flex justify-center lg:justify-end reveal d2">
         <div class="relative w-[300px] sm:w-[380px] lg:w-[440px]">
 
-          <!-- Marco decorativo -->
           <div class="absolute -bottom-5 -right-5 w-full h-full rounded-[2.5rem] border-[1.5px] border-rose-light"></div>
           <div class="absolute -top-8 -left-8 w-32 h-32 rounded-full bg-gold/20 blur-xl"></div>
           <div class="absolute -bottom-8 -left-4 w-24 h-24 rounded-full bg-rose-soft"></div>
 
-          <!-- Contenedor foto (protegida con marca de agua) -->
           <div class="relative rounded-[2.5rem] overflow-hidden aspect-[4/5] shadow-soft bg-blush flex items-center justify-center">
             <div class="absolute inset-0 flex flex-col items-center justify-center text-rose/50">
               <i class="fas fa-user text-7xl mb-3"></i>
@@ -260,11 +455,9 @@ tailwind.config = {
                  alt="Paula Andrea Serna Restrepo, psicóloga"
                  class="absolute inset-0 w-full h-full object-cover object-top"
                  onerror="this.style.display='none'">
-            <!-- Marca de agua de seguridad -->
             <div class="wm-layer" aria-hidden="true"></div>
           </div>
 
-          <!-- Badge flotante inferior -->
           <div class="absolute -left-6 md:-left-10 bottom-10 bg-white rounded-2xl shadow-soft px-5 py-4 border border-petal">
             <div class="flex items-center gap-3">
               <span class="w-10 h-10 rounded-full bg-rose-soft flex items-center justify-center text-rose-dark">
@@ -277,7 +470,11 @@ tailwind.config = {
             </div>
           </div>
 
-
+          <div class="absolute -right-4 md:-right-8 top-8 bg-rose-dark text-cream rounded-2xl shadow-glow px-4 py-3">
+            <p class="text-[10px] uppercase tracking-widest opacity-80">Atención</p>
+            <p class="text-sm font-semibold">Online & presencial</p>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -609,7 +806,11 @@ tailwind.config = {
 
       <div class="text-center md:text-left">
         <div class="flex items-center gap-3 justify-center md:justify-start">
-          <span class="w-10 h-10 rounded-full bg-cream text-[#8E5266] flex items-center justify-center font-serif text-lg font-semibold">P</span>
+          <!-- 🎭 Mood buddy mini (versión para fondo oscuro) en lugar de la "P" -->
+          <span class="mood-mini on-dark" aria-hidden="true">
+            <span class="mood-mini-ring"></span>
+            <span class="mood-face"><i class="fas fa-face-smile"></i></span>
+          </span>
           <div>
             <p class="font-serif text-lg text-cream">Paula Serna</p>
             <p class="text-[10px] uppercase tracking-[0.28em] text-cream/60">Psicología</p>
@@ -640,7 +841,7 @@ tailwind.config = {
       <p>© 2025 Paula Andrea Serna Restrepo · Psicóloga · Universidad Católica Luis Amigó</p>
       <p class="flex items-center gap-2 flex-wrap justify-center">
         <i class="fas fa-heart text-rose-light"></i>
-        Desarrollado por
+        Desarrollado con cariño por
         <a href="https://whiatcompany.lat" target="_blank" rel="noopener" class="text-cream/90 hover:text-gold transition underline decoration-dotted underline-offset-2">whiatcompany.lat</a>
       </p>
     </div>
@@ -656,6 +857,96 @@ tailwind.config = {
 <!-- ══════════ SCRIPTS ══════════ -->
 <script>
 /* ============================================================
+   MOOD BUDDY · caritas animadas (flotante + mini en navbar y footer)
+   Todos los .mood-face cambian sincronizados 🎭
+   ============================================================ */
+(function () {
+  'use strict';
+
+  const faces = document.querySelectorAll('.mood-face');
+  const tipEl = document.getElementById('moodTip');
+  const buddy = document.getElementById('moodBuddy');
+  if (!faces.length) return;
+
+  /* Distintas expresiones y mensajes — tono cálido y cercano */
+  const moods = [
+    { icon: 'fa-face-smile',      color: '#C2748A', tip: 'Estoy aquí para escucharte 💗' },
+    { icon: 'fa-face-grin-stars', color: '#D9A05B', tip: 'Cada pequeño paso cuenta ✨' },
+    { icon: 'fa-face-smile-wink', color: '#C2748A', tip: 'Un espacio seguro, sin juicios 🌸' },
+    { icon: 'fa-face-grin-heart', color: '#D98FA3', tip: 'Tu bienestar importa mucho 💗' },
+    { icon: 'fa-face-laugh-beam', color: '#C2748A', tip: 'Permítete sentir, sin prisa ☁️' },
+    { icon: 'fa-face-meh',        color: '#9E5A6E', tip: 'Está bien no estar bien 🤍' },
+    { icon: 'fa-face-smile-beam', color: '#C2748A', tip: 'Respira, vamos paso a paso 🌿' },
+    { icon: 'fa-face-flushed',    color: '#D98FA3', tip: 'Pedir ayuda también es valentía 🌷' }
+  ];
+
+  let idx = 0;
+
+  function renderMood(i) {
+    const m = moods[i % moods.length];
+
+    faces.forEach(face => {
+      const icon = face.querySelector('i');
+      if (!icon) return;
+
+      /* Animación de cambio */
+      face.classList.remove('swap');
+      void face.offsetWidth; /* reinicia la animación */
+      face.classList.add('swap');
+
+      /* Cambia icono y color */
+      icon.className = 'fas ' + m.icon;
+      face.style.color = m.color;
+
+      /* Limpia la clase después de la animación */
+      setTimeout(() => face.classList.remove('swap'), 650);
+    });
+
+    /* Actualiza el tooltip solo del flotante */
+    if (tipEl) tipEl.textContent = m.tip;
+  }
+
+  /* Inicia en la primera carita */
+  renderMood(0);
+
+  /* Ciclo automático cada 3.6 s */
+  let timer = setInterval(() => {
+    idx = (idx + 1) % moods.length;
+    renderMood(idx);
+  }, 3600);
+
+  /* Pausa al pasar el cursor sobre el flotante (para leer el mensaje) */
+  if (buddy) {
+    buddy.addEventListener('mouseenter', () => clearInterval(timer));
+    buddy.addEventListener('mouseleave', () => {
+      clearInterval(timer);
+      timer = setInterval(() => {
+        idx = (idx + 1) % moods.length;
+        renderMood(idx);
+      }, 3600);
+    });
+
+    /* Cambio extra al hacer clic (feedback inmediato) */
+    buddy.addEventListener('click', () => {
+      idx = (idx + 1) % moods.length;
+      renderMood(idx);
+    });
+  }
+
+  /* Pausa cuando la pestaña no está visible (ahorra recursos) */
+  document.addEventListener('visibilitychange', () => {
+    clearInterval(timer);
+    if (!document.hidden) {
+      timer = setInterval(() => {
+        idx = (idx + 1) % moods.length;
+        renderMood(idx);
+      }, 3600);
+    }
+  });
+})();
+
+
+/* ============================================================
    CAPA DE SEGURIDAD · Protección de contenido
    ============================================================ */
 (function () {
@@ -663,7 +954,6 @@ tailwind.config = {
 
   const BRAND = 'Paula Andrea Serna Restrepo';
 
-  /* ── Sistema de avisos (toasts) ── */
   const wrap = document.getElementById('toastWrap');
   function toast(msg, icon = 'fa-shield-halved', ms = 3400) {
     if (!wrap) return;
@@ -678,13 +968,13 @@ tailwind.config = {
     }, ms);
   }
 
-  /* ── 1. Bloquear clic derecho ── */
+  /* 1. Bloquear clic derecho */
   document.addEventListener('contextmenu', (e) => {
     e.preventDefault();
     toast('Contenido protegido · El clic derecho está deshabilitado', 'fa-lock');
   });
 
-  /* ── 2. Bloquear atajos de inspección ── */
+  /* 2. Bloquear atajos de inspección */
   document.addEventListener('keydown', (e) => {
     const k = (e.key || '').toLowerCase();
     const devtools =
@@ -700,7 +990,7 @@ tailwind.config = {
     }
   }, true);
 
-  /* ── 3. Proteger imágenes (arrastre y guardado) ── */
+  /* 3. Proteger imágenes */
   function protectImages() {
     document.querySelectorAll('img').forEach((img) => {
       img.setAttribute('draggable', 'false');
@@ -710,7 +1000,7 @@ tailwind.config = {
   }
   protectImages();
 
-  /* ── 4. Copiar siempre con atribución de autor ── */
+  /* 4. Copiar con atribución */
   document.addEventListener('copy', (e) => {
     try {
       const sel = String(window.getSelection() || '');
@@ -724,14 +1014,14 @@ tailwind.config = {
     } catch (err) { /* silencioso */ }
   });
 
-  /* ── 5. Anti-iframe (evita que copien el sitio) ── */
+  /* 5. Anti-iframe */
   try {
     if (window.top !== window.self) {
       window.top.location = window.self.location;
     }
-  } catch (err) { /* cross-origin: se ignora */ }
+  } catch (err) { /* cross-origin */ }
 
-  /* ── 6. Detección amable de herramientas de desarrollo ── */
+  /* 6. Detección amable de herramientas de desarrollo */
   let devWarned = false;
   function checkDevtools() {
     const wDiff = window.outerWidth - window.innerWidth;
@@ -745,7 +1035,7 @@ tailwind.config = {
   }
   setInterval(checkDevtools, 1800);
 
-  /* ── 7. Marca de agua dinámica sobre imágenes ── */
+  /* 7. Marca de agua dinámica sobre imágenes */
   document.querySelectorAll('img').forEach((img) => {
     const box = img.parentElement;
     if (box && !box.querySelector('.wm-layer')) {
@@ -756,7 +1046,7 @@ tailwind.config = {
     }
   });
 
-  /* ── 8. Aviso de bienvenida discreto ── */
+  /* 8. Aviso de bienvenida */
   window.addEventListener('load', () => {
     setTimeout(() => toast('Navegación segura · Contenido protegido', 'fa-shield-heart', 3000), 1400);
   });
