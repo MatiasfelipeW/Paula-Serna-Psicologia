@@ -5,27 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Paula Andrea Serna Restrepo | Psicóloga</title>
     
-    <!-- ==================== FAVICON Y OPEN GRAPH (NUEVO) ==================== -->
-    <!-- Foto en la pestaña del navegador -->
+    <!-- FAVICON Y OPEN GRAPH -->
     <link rel="icon" type="image/png" href="MEDIA/favicon.png">
     <link rel="apple-touch-icon" href="MEDIA/favicon.png">
-
-    <!-- Foto y datos al compartir el enlace (WhatsApp, Facebook, etc.) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://psicoeducativo.site/">
     <meta property="og:title" content="Paula Andrea Serna Restrepo | Psicóloga">
     <meta property="og:description" content="Acompañamiento psicológico con calidez, ética y profesionalismo. Un espacio seguro para tu bienestar emocional en Medellín y online.">
     <meta property="og:image" content="https://psicoeducativo.site/MEDIA/paula-compartir.jpg">
-    
-    <!-- Para Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Paula Andrea Serna Restrepo | Psicóloga">
     <meta name="twitter:description" content="Acompañamiento psicológico con calidez, ética y profesionalismo.">
     <meta name="twitter:image" content="https://psicoeducativo.site/MEDIA/paula-compartir.jpg">
-    <!-- ======================================================================= -->
 
-    <!-- ==================== MEDIDAS DE CIBERSEGURIDAD AVANZADAS ==================== -->
-    <!-- 1. Anti-Clickjacking (Frame Busting) -->
+    <!-- CIBERSEGURIDAD -->
     <style id="antiClickjack">body{display:none !important;}</style>
     <script type="text/javascript">
         if (self === top) {
@@ -35,15 +28,10 @@
             top.location = self.location;
         }
     </script>
-    <!-- 2. Política de Seguridad de Contenido (CSP) Estricta -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://wa.me;">
-    <!-- 3. Prevención de MIME sniffing -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <!-- 4. Protección XSS -->
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-    <!-- 5. Política de referencia estricta -->
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <!-- ======================================================================= -->
 
     <!-- TailwindCSS + Font Awesome + Google Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -51,13 +39,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
-        /* Definición de colores personalizados */
         :root {
             --color-terracota: #8B3A2B; 
             --color-terracota-claro: #A54C3A;
             --color-crema: #FDFBF7; 
             --color-texto: #4A4A4A;
             --color-acento: #D98E73;
+            --color-dorado: #C9A87C;
         }
 
         body {
@@ -65,16 +53,16 @@
             background-color: var(--color-crema);
             color: var(--color-texto);
             overflow-x: hidden;
-            -webkit-user-select: none; /* Bloquea selección de texto en Safari */
-            -ms-user-select: none;     /* Bloquea selección de texto en IE/Edge */
-            user-select: none;         /* Bloquea selección de texto estándar */
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         h1, h2, h3, .font-elegant {
             font-family: 'Playfair Display', serif;
         }
 
-        /* --- ESTILOS DEL LOGO --- */
+        /* --- LOGO --- */
         .logo-container {
             display: flex;
             flex-direction: column;
@@ -129,7 +117,7 @@
             color: var(--color-acento);
         }
 
-        /* --- SECCIÓN HERO --- */
+        /* --- HERO SECTION --- */
         .hero-section {
             background-color: var(--color-terracota);
             color: white;
@@ -162,26 +150,114 @@
             50% { transform: translateY(-20px) scale(1.05); }
         }
 
-        .photo-arch {
-            border-top-left-radius: 9999px;
-            border-top-right-radius: 9999px;
-            border-bottom-left-radius: 2rem;
-            border-bottom-right-radius: 2rem;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            border: 4px solid rgba(255,255,255,0.1);
+        /* ============================================
+           NUEVO MARCO ORGÁNICO PARA LA FOTO (CURIOSO)
+           ============================================ */
+        .photo-organic-wrapper {
             position: relative;
+            width: 320px;
+            height: 420px;
             z-index: 2;
         }
-        .photo-arch img {
+
+        @media (min-width: 768px) {
+            .photo-organic-wrapper {
+                width: 400px;
+                height: 520px;
+            }
+        }
+
+        /* Gota orgánica principal */
+        .photo-organic-frame {
+            position: absolute;
+            inset: 0;
+            border-radius: 62% 38% 46% 54% / 60% 42% 58% 40%;
+            overflow: hidden;
+            box-shadow: 
+                0 30px 60px rgba(0,0,0,0.35),
+                0 0 0 2px rgba(255,255,255,0.1) inset;
+            border: 3px solid rgba(255,255,255,0.15);
+            animation: morph 12s ease-in-out infinite;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(4px);
+            transition: transform 0.6s ease;
+        }
+
+        .photo-organic-frame:hover {
+            transform: scale(1.02);
+        }
+
+        .photo-organic-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.5s ease;
+            transition: transform 0.8s ease;
         }
-        .photo-arch:hover img {
-            transform: scale(1.03);
+
+        .photo-organic-frame:hover img {
+            transform: scale(1.06);
+        }
+
+        @keyframes morph {
+            0%, 100% {
+                border-radius: 62% 38% 46% 54% / 60% 42% 58% 40%;
+            }
+            33% {
+                border-radius: 48% 52% 38% 62% / 52% 60% 40% 48%;
+            }
+            66% {
+                border-radius: 55% 45% 55% 45% / 45% 55% 45% 55%;
+            }
+        }
+
+        /* Aro decorativo giratorio alrededor */
+        .photo-ring {
+            position: absolute;
+            inset: -18px;
+            border-radius: 50%;
+            border: 2px dashed rgba(217, 142, 115, 0.5);
+            animation: spinSlow 30s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Puntos flotantes decorativos */
+        .float-dot {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--color-acento);
+            opacity: 0.6;
+            animation: floatDot 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+        .dot-1 { width: 14px; height: 14px; top: -20px; right: 20px; animation-delay: 0s; }
+        .dot-2 { width: 8px; height: 8px; bottom: 30px; left: -25px; animation-delay: -1.5s; background: #fff; }
+        .dot-3 { width: 10px; height: 10px; top: 50%; right: -30px; animation-delay: -3s; background: var(--color-dorado); }
+        .dot-4 { width: 6px; height: 6px; bottom: -15px; right: 40%; animation-delay: -4.5s; background: #fff; }
+
+        @keyframes floatDot {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-15px) scale(1.3); opacity: 0.9; }
+        }
+
+        /* Halo de luz detrás de la foto */
+        .photo-glow {
+            position: absolute;
+            inset: -40px;
+            background: radial-gradient(circle at 50% 50%, rgba(217,142,115,0.35) 0%, transparent 70%);
+            filter: blur(30px);
+            z-index: -1;
+            animation: pulseGlow 5s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.08); }
         }
 
         /* --- BOTONES --- */
@@ -249,7 +325,7 @@
             padding: 0.75rem;
             width: 100%;
             transition: all 0.3s;
-            -webkit-user-select: text; /* Permite seleccionar texto dentro de los inputs */
+            -webkit-user-select: text;
             -ms-user-select: text;
             user-select: text;
         }
@@ -260,80 +336,141 @@
             transform: translateY(-1px);
         }
 
-        /* ==================== DISEÑO DE FOOTER MODERNO ==================== */
-        .footer-modern {
-            background: linear-gradient(135deg, #2C1A14 0%, #4A2B22 100%);
+        /* ============================================
+           FOOTER ORGÁNICO – SIN CUADRÍCULA
+           ============================================ */
+        .footer-organic {
+            background: linear-gradient(160deg, #2C1A14 0%, #3D241C 40%, #4A2B22 100%);
             position: relative;
             overflow: hidden;
             color: #E5D9D2;
+            padding: 5rem 0 2rem;
         }
 
-        .footer-modern::before {
-            content: '';
+        /* Onda superior del footer */
+        .footer-wave {
             position: absolute;
-            top: 0;
+            top: -2px;
             left: 0;
             width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            pointer-events: none;
+            height: 80px;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .footer-wave svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+        .footer-wave .shape-fill {
+            fill: #FDFBF7;
         }
 
-        .footer-glow {
+        /* Manchas de luz suaves */
+        .footer-organic::before {
+            content: '';
             position: absolute;
             top: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(217, 142, 115, 0.2) 0%, transparent 70%);
-            filter: blur(40px);
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(217, 142, 115, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            pointer-events: none;
+        }
+        .footer-organic::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            right: -80px;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(201, 168, 124, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(50px);
             pointer-events: none;
         }
 
+        /* Líneas curvas decorativas */
+        .footer-curve {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(217, 142, 115, 0.15);
+            pointer-events: none;
+        }
+        .curve-1 {
+            width: 500px;
+            height: 500px;
+            top: -250px;
+            left: 10%;
+        }
+        .curve-2 {
+            width: 300px;
+            height: 300px;
+            bottom: -150px;
+            right: 15%;
+            border-color: rgba(201, 168, 124, 0.1);
+        }
+
+        /* Enlaces del footer */
         .footer-link {
             position: relative;
             display: inline-block;
             color: #E5D9D2;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+            padding-left: 0;
         }
-        .footer-link::after {
-            content: '';
+        .footer-link::before {
+            content: '→';
             position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: -2px;
-            left: 0;
-            background-color: var(--color-acento);
-            transition: width 0.3s ease;
+            left: -18px;
+            opacity: 0;
+            color: var(--color-acento);
+            transition: all 0.3s ease;
         }
         .footer-link:hover {
             color: var(--color-acento);
+            padding-left: 8px;
         }
-        .footer-link:hover::after {
-            width: 100%;
+        .footer-link:hover::before {
+            opacity: 1;
+            left: -10px;
         }
 
-        .social-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
+        /* Iconos sociales flotantes */
+        .social-float {
+            width: 48px;
+            height: 48px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             color: #E5D9D2;
         }
-        .social-icon:hover {
+        .social-float:hover {
             background: var(--color-acento);
             border-color: var(--color-acento);
             color: white;
-            transform: translateY(-5px) rotate(8deg);
+            transform: translateY(-6px) rotate(10deg);
+            border-radius: 50%;
+        }
+
+        /* Newsletter */
+        .newsletter-organic {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 2rem 0.5rem 2rem 0.5rem;
+            padding: 1.5rem;
+            transition: all 0.4s ease;
+        }
+        .newsletter-organic:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(217, 142, 115, 0.3);
         }
 
         .newsletter-input {
@@ -368,14 +505,44 @@
             box-shadow: 0 10px 20px rgba(217, 142, 115, 0.3);
         }
 
-        .footer-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(217, 142, 115, 0.5), transparent);
-            margin: 40px 0;
-        }
-
         .logo-glow {
             text-shadow: 0 0 20px rgba(217, 142, 115, 0.5);
+        }
+
+        /* Separador curvo */
+        .footer-divider-organic {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(217, 142, 115, 0.4), rgba(201, 168, 124, 0.4), transparent);
+            border-radius: 50%;
+            margin: 3rem 0 2rem;
+            position: relative;
+        }
+        .footer-divider-organic::after {
+            content: '✦';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--color-acento);
+            font-size: 1.2rem;
+            background: #2C1A14;
+            padding: 0 1rem;
+        }
+
+        /* Badge flotante de "hecho con amor" */
+        .love-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(217, 142, 115, 0.1);
+            border: 1px solid rgba(217, 142, 115, 0.2);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .love-badge:hover {
+            background: rgba(217, 142, 115, 0.2);
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -442,9 +609,22 @@
                     </div>
                 </div>
 
+                <!-- NUEVO MARCO ORGÁNICO -->
                 <div class="flex-1 flex justify-center order-1 md:order-2 reveal reveal-delay-3">
-                    <div class="photo-arch w-72 h-96 md:w-96 md:h-[500px] bg-white/10">
-                        <img src="MEDIA/paula.jpeg" alt="Paula Andrea Serna Restrepo - Psicóloga" class="w-full h-full object-cover">
+                    <div class="photo-organic-wrapper">
+                        <!-- Halo de luz -->
+                        <div class="photo-glow"></div>
+                        <!-- Aro giratorio -->
+                        <div class="photo-ring"></div>
+                        <!-- Gota orgánica con la foto -->
+                        <div class="photo-organic-frame">
+                            <img src="MEDIA/paula.jpeg" alt="Paula Andrea Serna Restrepo - Psicóloga">
+                        </div>
+                        <!-- Puntos flotantes -->
+                        <div class="float-dot dot-1"></div>
+                        <div class="float-dot dot-2"></div>
+                        <div class="float-dot dot-3"></div>
+                        <div class="float-dot dot-4"></div>
                     </div>
                 </div>
             </div>
@@ -460,7 +640,6 @@
                 </div>
                 <div class="flex items-center gap-3 justify-center md:justify-start">
                     <i class="fas fa-envelope text-xl text-white"></i>
-                    <!-- CORREO CORREGIDO -->
                     <span>aspsico@oulook.es</span>
                 </div>
             </div>
@@ -640,7 +819,6 @@
                             </div>
                             <div>
                                 <p class="font-semibold text-gray-800">Correo electrónico</p>
-                                <!-- CORREO CORREGIDO -->
                                 <a href="mailto:aspsico@oulook.es" class="text-gray-700 font-medium text-lg hover:text-[#8B3A2B]">aspsico@oulook.es</a>
                             </div>
                         </div>
@@ -677,113 +855,126 @@
         </div>
     </section>
 
-    <!-- ==================== FOOTER MODERNO ==================== -->
-    <footer class="footer-modern pt-20 pb-10">
-        <div class="footer-glow"></div>
+    <!-- ==================================================
+         FOOTER ORGÁNICO – SIN CUADRÍCULA
+         ================================================== -->
+    <footer class="footer-organic">
+        <!-- Onda superior -->
+        <div class="footer-wave">
+            <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+                <path d="M0,40 C200,80 400,0 600,40 C800,80 1000,0 1200,40 L1200,0 L0,0 Z" class="shape-fill"></path>
+            </svg>
+        </div>
+
+        <!-- Líneas curvas decorativas -->
+        <div class="footer-curve curve-1"></div>
+        <div class="footer-curve curve-2"></div>
 
         <div class="max-w-6xl mx-auto px-5 relative z-10">
             
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-12">
-                
-                <div class="lg:col-span-5 text-center lg:text-left">
-                    <div class="flex items-center justify-center lg:justify-start gap-3 mb-6">
-                        <i class="fas fa-brain text-4xl text-[#D98E73] logo-glow"></i>
+            <!-- Bloque superior: Logo + descripción + redes (todo fluido, sin columnas rígidas) -->
+            <div class="flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-16 mb-12">
+                <!-- Logo y descripción -->
+                <div class="flex-1 text-center lg:text-left">
+                    <div class="flex items-center justify-center lg:justify-start gap-4 mb-6">
+                        <i class="fas fa-brain text-5xl text-[#D98E73] logo-glow"></i>
                         <div>
-                            <h3 class="text-2xl font-bold font-elegant text-white">Paula Andrea</h3>
-                            <p class="text-xs text-[#D98E73] tracking-[0.2em] uppercase">Psicóloga</p>
+                            <h3 class="text-3xl font-bold font-elegant text-white">Paula Andrea</h3>
+                            <p class="text-xs text-[#D98E73] tracking-[0.25em] uppercase">Psicóloga</p>
                         </div>
                     </div>
-                    <p class="text-[#E5D9D2]/70 text-sm leading-relaxed mb-6 max-w-md mx-auto lg:mx-0">
+                    <p class="text-[#E5D9D2]/70 text-base leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
                         Acompañamiento psicológico con calidez, ética y profesionalismo. Un espacio seguro para tu bienestar emocional en Medellín y online para toda Colombia.
                     </p>
+                    <!-- Redes sociales con forma orgánica -->
                     <div class="flex justify-center lg:justify-start gap-4">
-                        <a href="https://wa.me/573053536173" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp">
-                            <i class="fab fa-whatsapp text-lg"></i>
+                        <a href="https://wa.me/573053536173" target="_blank" rel="noopener noreferrer" class="social-float" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp text-xl"></i>
                         </a>
-                        <a href="mailto:aspsico@oulook.es" class="social-icon" aria-label="Correo">
-                            <i class="fas fa-envelope text-lg"></i>
+                        <a href="mailto:aspsico@oulook.es" class="social-float" aria-label="Correo">
+                            <i class="fas fa-envelope text-xl"></i>
                         </a>
-                        <a href="#" class="social-icon" aria-label="Instagram">
-                            <i class="fab fa-instagram text-lg"></i>
+                        <a href="#" class="social-float" aria-label="Instagram">
+                            <i class="fab fa-instagram text-xl"></i>
                         </a>
-                        <a href="#" class="social-icon" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in text-lg"></i>
+                        <a href="#" class="social-float" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in text-xl"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="lg:col-span-3 text-center lg:text-left">
-                    <h4 class="text-lg font-bold font-elegant text-white mb-6 relative inline-block">
-                        Enlaces Rápidos
-                        <span class="absolute bottom-0 left-0 w-1/2 h-0.5 bg-[#D98E73]"></span>
-                    </h4>
-                    <ul class="space-y-3 text-[#E5D9D2]/70 text-sm">
-                        <li><a href="#inicio" class="footer-link">Inicio</a></li>
-                        <li><a href="#sobre-mi" class="footer-link">Sobre mí</a></li>
-                        <li><a href="#servicios" class="footer-link">Servicios</a></li>
-                        <li><a href="#reservas" class="footer-link">Reservas</a></li>
-                        <li><a href="#contacto" class="footer-link">Contacto</a></li>
-                    </ul>
-                </div>
-
-                <div class="lg:col-span-4 text-center lg:text-left">
-                    <h4 class="text-lg font-bold font-elegant text-white mb-6 relative inline-block">
-                        Mantente en contacto
-                        <span class="absolute bottom-0 left-0 w-1/2 h-0.5 bg-[#D98E73]"></span>
-                    </h4>
-                    <p class="text-[#E5D9D2]/70 text-sm mb-4">Recibe tips de bienestar emocional y novedades directamente en tu correo.</p>
-                    <form id="newsletterForm" class="flex flex-col gap-3">
-                        <input type="email" id="news_email" placeholder="Tu correo electrónico" required 
-                               class="newsletter-input text-sm">
-                        <button type="submit" class="btn-subscribe text-sm">
-                            <i class="fas fa-paper-plane mr-2"></i> Suscribirme
-                        </button>
-                    </form>
-                    <p class="text-[10px] text-[#E5D9D2]/40 mt-3">* No enviamos spam. Puedes darte de baja cuando quieras.</p>
+                <!-- Newsletter con forma orgánica -->
+                <div class="flex-1 w-full max-w-md mx-auto lg:mx-0">
+                    <div class="newsletter-organic">
+                        <h4 class="text-xl font-bold font-elegant text-white mb-2 relative inline-block">
+                            Mantente en contacto
+                            <span class="absolute bottom-0 left-0 w-1/2 h-0.5 bg-[#D98E73]"></span>
+                        </h4>
+                        <p class="text-[#E5D9D2]/70 text-sm mb-5">Recibe tips de bienestar emocional y novedades directamente en tu correo.</p>
+                        <form id="newsletterForm" class="flex flex-col gap-3">
+                            <input type="email" id="news_email" placeholder="Tu correo electrónico" required 
+                                   class="newsletter-input text-sm">
+                            <button type="submit" class="btn-subscribe text-sm">
+                                <i class="fas fa-paper-plane mr-2"></i> Suscribirme
+                            </button>
+                        </form>
+                        <p class="text-[10px] text-[#E5D9D2]/40 mt-3">* No enviamos spam. Puedes darte de baja cuando quieras.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="footer-divider"></div>
+            <!-- Separador curvo con destello -->
+            <div class="footer-divider-organic"></div>
 
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#E5D9D2]/50">
+            <!-- Enlaces rápidos en línea horizontal fluida -->
+            <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-10">
+                <a href="#inicio" class="footer-link text-sm">Inicio</a>
+                <a href="#sobre-mi" class="footer-link text-sm">Sobre mí</a>
+                <a href="#servicios" class="footer-link text-sm">Servicios</a>
+                <a href="#reservas" class="footer-link text-sm">Reservas</a>
+                <a href="#contacto" class="footer-link text-sm">Contacto</a>
+            </div>
+
+            <!-- Línea inferior con información legal y créditos -->
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#E5D9D2]/50 text-center md:text-left">
                 <p>© 2025 Psicóloga Paula Andrea Serna Restrepo. Todos los derechos reservados.</p>
-                <p>Medellín, Colombia | Universidad Católica Luis Amigo</p>
-            </div>
-            
-            <div class="mt-6 text-center">
-                <p class="text-xs text-[#E5D9D2]/40 flex items-center justify-center gap-2 flex-wrap">
-                    <span>Desarrollado con</span>
-                    <i class="fas fa-heart text-[#D98E73] animate-pulse"></i>
-                    <span>por</span>
-                    <a href="https://whiatcompany.lat" target="_blank" rel="noopener noreferrer" class="font-semibold text-white hover:text-[#D98E73] transition underline decoration-dotted underline-offset-2">whiatcompany.lat</a>
+                <p class="flex items-center gap-2">
+                    <i class="fas fa-map-pin text-[#D98E73]"></i> Medellín, Colombia 
+                    <span class="text-[#D98E73]">|</span> 
+                    Universidad Católica Luis Amigo
                 </p>
+            </div>
+
+            <!-- Badge de desarrollo -->
+            <div class="mt-8 flex justify-center">
+                <div class="love-badge">
+                    <span class="text-xs text-[#E5D9D2]/70">Desarrollado con</span>
+                    <i class="fas fa-heart text-[#D98E73] animate-pulse"></i>
+                    <span class="text-xs text-[#E5D9D2]/70">por</span>
+                    <a href="https://whiatcompany.lat" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-white hover:text-[#D98E73] transition underline decoration-dotted underline-offset-2">whiatcompany.lat</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
         // --- BLOQUEO DE CLIC DERECHO E INSPECCIÓN ---
-        // 1. Bloquear menú contextual (clic derecho)
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
             alert('El clic derecho está deshabilitado para proteger el contenido de esta página.');
         });
 
-        // 2. Bloquear atajos de teclado comunes para inspección
         document.addEventListener('keydown', function(e) {
-            // Bloquear F12
             if (e.key === 'F12' || e.keyCode === 123) {
                 e.preventDefault();
                 alert('La inspección de código está deshabilitada.');
                 return false;
             }
-            // Bloquear Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
             if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) {
                 e.preventDefault();
                 alert('La inspección de código está deshabilitada.');
                 return false;
             }
-            // Bloquear Ctrl+U (Ver código fuente)
             if (e.ctrlKey && (e.key === 'U' || e.key === 'u')) {
                 e.preventDefault();
                 alert('La visualización del código fuente está deshabilitada.');
@@ -791,7 +982,6 @@
             }
         });
 
-        // 3. Bloquear selección de texto (ya está en CSS, pero reforzamos con JS)
         document.addEventListener('selectstart', function(e) {
             e.preventDefault();
         });
