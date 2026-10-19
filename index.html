@@ -11,7 +11,6 @@
     <style>
         * {
             font-family: 'Inter', sans-serif;
-            /* Desactiva la selección de texto para que no puedan copiar fácilmente */
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -22,6 +21,7 @@
         }
         body {
             background: #FFFDF9;
+            overflow-x: hidden;
         }
         /* Custom soft shadow and card styles */
         .card-hover {
@@ -100,24 +100,259 @@
             height: 100%;
             object-fit: cover;
             border-radius: 50%;
-            /* Evita que descarguen la imagen fácilmente arrastrándola */
             pointer-events: none; 
         }
+
+        /* ========================================== */
+        /* PRELOADER                                  */
+        /* ========================================== */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #FEF6E9 0%, #FFFDF9 100%);
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .preloader-icons {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            justify-content: center;
+        }
+        .preloader-icons i {
+            font-size: 3.5rem;
+            display: inline-block;
+            animation: floatIcon 2s ease-in-out infinite;
+        }
+        .preloader-icons .fa-brain {
+            color: #B28B9C;
+            animation-delay: 0s;
+        }
+        .preloader-icons .fa-heart {
+            color: #D9A7B0;
+            animation-delay: 0.4s;
+        }
+        .preloader-icons .fa-leaf {
+            color: #8FB09E;
+            animation-delay: 0.8s;
+        }
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        .preloader-text {
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #6B4E71;
+            letter-spacing: 0.05em;
+            animation: pulseText 1.8s ease-in-out infinite;
+        }
+        @keyframes pulseText {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        .preloader-bar {
+            margin-top: 1.5rem;
+            width: 180px;
+            height: 4px;
+            background: #EADBCE;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+        .preloader-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #6B4E71, #A97C9E, #D9A7B0);
+            border-radius: 999px;
+            animation: fillBar 2.5s ease-in-out forwards;
+        }
+        @keyframes fillBar {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        /* ========================================== */
+        /* NUEVO FONDO ANIMADO RELAJANTE (ONDAS Y LUCES) */
+        /* ========================================== */
+        .peaceful-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+            background: #FFFDF9;
+        }
+        
+        /* Esferas de luz flotantes */
+        .light-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: floatOrb 20s infinite alternate ease-in-out;
+            pointer-events: none;
+        }
+        .light-orb.orb-1 {
+            width: 500px; height: 500px;
+            background: rgba(169, 124, 158, 0.25); /* Lavanda */
+            top: -10%; left: -10%;
+            animation-duration: 25s;
+        }
+        .light-orb.orb-2 {
+            width: 400px; height: 400px;
+            background: rgba(143, 176, 158, 0.25); /* Verde Salvia */
+            bottom: -10%; right: -5%;
+            animation-duration: 30s;
+            animation-delay: -5s;
+        }
+        .light-orb.orb-3 {
+            width: 600px; height: 600px;
+            background: rgba(217, 167, 176, 0.15); /* Rosa suave */
+            top: 30%; left: 40%;
+            animation-duration: 35s;
+            animation-delay: -10s;
+        }
+
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 30px) scale(1.1); }
+            100% { transform: translate(-30px, -50px) scale(0.9); }
+        }
+
+        /* Ondas sutiles que se mueven de fondo */
+        .wave-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%23A97C9E" fill-opacity="0.03" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,250.7C1248,267,1344,245,1392,234.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: cover;
+            animation: waveMove 15s linear infinite alternate;
+        }
+        
+        .wave-bg.wave-2 {
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%238FB09E" fill-opacity="0.04" d="M0,64L60,80C120,96,240,128,360,144C480,160,600,160,720,138.7C840,117,960,75,1080,64C1200,53,1320,75,1380,85.3L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>');
+            background-position: top;
+            animation-duration: 20s;
+            animation-delay: -5s;
+        }
+
+        @keyframes waveMove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50px); }
+        }
+
+        /* Asegurar que el contenido quede por encima del fondo animado,
+           EXCLUYENDO el botón flotante de WhatsApp y el preloader */
+        body > *:not(.peaceful-bg):not(#preloader):not(.floating-wa-btn) {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========================================== */
+        /* BOTÓN FLOTANTE WHATSAPP (CORREGIDO)        */
+        /* ========================================== */
+        .floating-wa-btn {
+            position: fixed !important;
+            bottom: 1.5rem !important;
+            right: 1.5rem !important;
+            z-index: 100 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 3.5rem !important;
+            height: 3.5rem !important;
+            border-radius: 9999px !important;
+            background-color: #25D366 !important;
+            color: #fff !important;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3) !important;
+            transition: all 0.2s ease !important;
+        }
+        .floating-wa-btn:hover {
+            transform: scale(1.08) !important;
+            background-color: #1da15a !important;
+            box-shadow: 0 12px 28px rgba(37, 211, 102, 0.4) !important;
+        }
+        @media (min-width: 768px) {
+            .floating-wa-btn {
+                width: 4rem !important;
+                height: 4rem !important;
+                bottom: 1.5rem !important;
+                right: 1.5rem !important;
+            }
+        }
+
+        /* ========================================== */
+        /* ANIMACIONES AL HACER SCROLL (Efecto Reveal) */
+        /* ========================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Retrasos escalonados para las tarjetas */
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
     </style>
 </head>
 <body class="antialiased text-gray-800">
 
-    <!-- FLOATING WHATSAPP BUTTON -->
+    <!-- ========================================== -->
+    <!-- PRELOADER (2.5 segundos)                   -->
+    <!-- ========================================== -->
+    <div id="preloader">
+        <div class="preloader-icons">
+            <i class="fas fa-brain"></i>
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-leaf"></i>
+        </div>
+        <p class="preloader-text">Preparando un espacio para ti...</p>
+        <div class="preloader-bar">
+            <div class="preloader-bar-fill"></div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- NUEVO FONDO ANIMADO RELAJANTE              -->
+    <!-- ========================================== -->
+    <div class="peaceful-bg">
+        <div class="light-orb orb-1"></div>
+        <div class="light-orb orb-2"></div>
+        <div class="light-orb orb-3"></div>
+        <div class="wave-bg"></div>
+        <div class="wave-bg wave-2"></div>
+    </div>
+
+    <!-- FLOATING WHATSAPP BUTTON (CORREGIDO con clase propia) -->
     <a href="https://wa.me/573053536173?text=Hola%20Paula%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20o%20tener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tus%20servicios%20de%20psicolog%C3%ADa." 
        target="_blank" 
        rel="noopener noreferrer"
-       class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-xl floating-wa hover:shadow-2xl transition-all duration-300 flex items-center justify-center w-14 h-14 md:w-16 md:h-16 group"
+       class="floating-wa-btn floating-wa"
        aria-label="WhatsApp: contactar con Paula">
-        <i class="fab fa-whatsapp text-2xl md:text-3xl group-hover:scale-110 transition-transform"></i>
+        <i class="fab fa-whatsapp text-2xl md:text-3xl"></i>
     </a>
 
-    <!-- NAVBAR (con logo actual) -->
-    <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#F0E5DE] shadow-sm">
+    <!-- NAVBAR (con fondo más sólido para evitar transparencias no deseadas) -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#F0E5DE] shadow-sm">
         <div class="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap items-center justify-between gap-3">
             <div class="flex items-center space-x-3">
                 <!-- Logo actual -->
@@ -141,7 +376,7 @@
         <div class="max-w-6xl mx-auto px-5 md:px-8">
             <div class="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-16">
                 <!-- Texto hero -->
-                <div class="flex-1 text-center md:text-left">
+                <div class="flex-1 text-center md:text-left reveal">
                     <span class="inline-block bg-[#F1E4DA] text-[#6B4E71] px-4 py-1 rounded-full text-sm font-semibold mb-4 shadow-sm">
                         <i class="fas fa-graduation-cap mr-1"></i> Graduada 2024 · Universidad Católica Luis Amigo
                     </span>
@@ -170,7 +405,7 @@
                     </div>
                 </div>
                 <!-- Ilustración decorativa -->
-                <div class="flex-1 flex justify-center relative">
+                <div class="flex-1 flex justify-center relative reveal reveal-delay-2">
                     <div class="bg-[#F8F0EA] w-72 h-72 md:w-96 md:h-96 rounded-full flex items-center justify-center shadow-xl relative overflow-hidden">
                         <div class="absolute -top-8 -left-8 w-32 h-32 bg-[#EADBCE] rounded-full opacity-40"></div>
                         <div class="absolute bottom-6 right-6 w-24 h-24 bg-[#D9C5B0] rounded-full opacity-30"></div>
@@ -187,15 +422,15 @@
     </section>
 
     <!-- ABOUT SECTION -->
-    <section id="sobre-mi" class="py-16 md:py-24 bg-white">
+    <section id="sobre-mi" class="py-16 md:py-24 bg-white/80 backdrop-blur-sm">
         <div class="max-w-6xl mx-auto px-5 md:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 reveal">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 inline-block border-b-4 border-[#E5CFBF] pb-2">Sobre mí</h2>
                 <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Conóceme, mi formación y mi manera de acompañarte</p>
             </div>
             <div class="flex flex-col lg:flex-row gap-12 items-center">
                 <!-- Avatar / Foto Profesional -->
-                <div class="flex-shrink-0 bg-[#FEF6EF] rounded-3xl p-8 shadow-md w-full lg:w-auto">
+                <div class="flex-shrink-0 bg-[#FEF6EF] rounded-3xl p-8 shadow-md w-full lg:w-auto reveal">
                     <div class="w-56 h-56 mx-auto rounded-full flex items-center justify-center shadow-inner overflow-hidden border-4 border-white">
                         <!-- Aquí se inserta la imagen paula.jpeg de la carpeta MEDIA -->
                         <img src="./MEDIA/paula.jpeg" alt="Paula Andrea Serna Restrepo" class="profile-photo" onerror="this.src='https://via.placeholder.com/250?text=Foto+Paula';">
@@ -204,10 +439,8 @@
                         <div class="flex items-center justify-center gap-2 text-[#6B4E71] font-semibold bg-[#F6EDE6] rounded-full py-2 px-4">
                             <i class="fas fa-university"></i> <span>Universidad Católica Luis Amigo, Medellín</span>
                         </div>
-                        <!-- CAMBIO APLICADO: Se eliminó "Graduada con honores" -->
                         <p class="text-gray-700 mt-3"><i class="fas fa-calendar-alt text-[#A97C9E] mr-1"></i> Graduada · 2024</p>
                         
-                        <!-- Texto modificado: Profesional Independiente y tecnóloga -->
                         <div class="mt-4 flex flex-col gap-2 text-sm text-gray-600 font-medium">
                             <span class="bg-gray-100 px-3 py-1 rounded-full"><i class="fas fa-briefcase mr-1"></i> Profesional Independiente</span>
                             <span class="bg-gray-100 px-3 py-1 rounded-full"><i class="fas fa-graduation-cap mr-1"></i> Tecnóloga en Gestión Comunitaria</span>
@@ -219,7 +452,7 @@
                     </div>
                 </div>
                 <!-- Descripción personal y profesional -->
-                <div class="flex-1 space-y-5 text-gray-700 leading-relaxed">
+                <div class="flex-1 space-y-5 text-gray-700 leading-relaxed reveal reveal-delay-2">
                     <p class="text-lg font-medium text-[#6B4E71]">✨ Psicóloga apasionada por el bienestar emocional ✨</p>
                     <p>Soy <strong>Paula Andrea Serna Restrepo</strong>, psicóloga graduada en 2024 de la <strong>Universidad Católica Luis Amigo de Medellín</strong>. Mi formación me ha brindado herramientas basadas en la evidencia científica, pero siempre con un enfoque humano, cálido y libre de juicios.</p>
                     <p>Creo firmemente en el poder transformador de un espacio terapéutico seguro, donde puedas explorar tus emociones, entender tus patrones y construir una vida con mayor bienestar y autenticidad. Mi objetivo es acompañarte con respeto, empatía y compromiso, adaptando cada sesión a tus necesidades únicas.</p>
@@ -235,15 +468,15 @@
     </section>
 
     <!-- SERVICES SECTION -->
-    <section id="servicios" class="py-16 md:py-24 bg-[#FEFAF5]">
+    <section id="servicios" class="py-16 md:py-24 bg-[#FEFAF5]/80 backdrop-blur-sm">
         <div class="max-w-6xl mx-auto px-5 md:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 reveal">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 inline-block border-b-4 border-[#E5CFBF] pb-2">Mis servicios</h2>
                 <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Acompañamiento psicológico personalizado para que encuentres bienestar en cada etapa</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
                 <!-- Card 1 -->
-                <div class="bg-white rounded-2xl p-6 shadow-md card-hover transition-all border border-[#F3E9E1]">
+                <div class="bg-white rounded-2xl p-6 shadow-md card-hover transition-all border border-[#F3E9E1] reveal">
                     <div class="w-14 h-14 bg-[#F4E8E0] rounded-2xl flex items-center justify-center mb-5">
                         <i class="fas fa-user-friends text-2xl text-[#8F6E7E]"></i>
                     </div>
@@ -251,7 +484,7 @@
                     <p class="text-gray-600 text-sm leading-relaxed">Espacio uno a uno para explorar emociones, superar bloqueos y fortalecer tu autoconocimiento.</p>
                 </div>
                 <!-- Card 2 -->
-                <div class="bg-white rounded-2xl p-6 shadow-md card-hover transition-all border border-[#F3E9E1]">
+                <div class="bg-white rounded-2xl p-6 shadow-md card-hover transition-all border border-[#F3E9E1] reveal reveal-delay-1">
                     <div class="w-14 h-14 bg-[#F4E8E0] rounded-2xl flex items-center justify-center mb-5">
                         <i class="fas fa-brain text-2xl text-[#8F6E7E]"></i>
                     </div>
@@ -259,7 +492,7 @@
                     <p class="text-gray-600 text-sm leading-relaxed">Técnicas basadas en evidencia para regular la ansiedad, el estrés y recuperar tu calma interior.</p>
                 </div>
                 <!-- Card 3 -->
-                <div class="bg-white rounded-2xl p-6 shadow-md card-hover transition-all border border-[#F3E9E1]">
+                <div class="bg-white rounded-2xl p-6 shadow-md card-hover transition-all border border-[#F3E9E1] reveal reveal-delay-2">
                     <div class="w-14 h-14 bg-[#F4E8E0] rounded-2xl flex items-center justify-center mb-5">
                         <i class="fas fa-heartbeat text-2xl text-[#8F6E7E]"></i>
                     </div>
@@ -267,7 +500,7 @@
                     <p class="text-gray-600 text-sm leading-relaxed">Fortalece tu confianza, autoimagen y desarrolla herramientas para vivir con mayor plenitud.</p>
                 </div>
                 <!-- Card 4 -->
-                <div class="bg-white rounded-2xl p-6 shadow-md card-hover transition-all border border-[#F3E9E1]">
+                <div class="bg-white rounded-2xl p-6 shadow-md card-hover transition-all border border-[#F3E9E1] reveal">
                     <div class="w-14 h-14 bg-[#F4E8E0] rounded-2xl flex items-center justify-center mb-5">
                         <i class="fas fa-children text-2xl text-[#8F6E7E]"></i>
                     </div>
@@ -275,7 +508,7 @@
                     <p class="text-gray-600 text-sm leading-relaxed">Acompañamiento en crisis, transiciones y desafíos propios de la adolescencia con empatía.</p>
                 </div>
                 <!-- Card 5: Orientación Vocacional -->
-                <div class="bg-white rounded-2xl p-6 shadow-md card-hover transition-all border border-[#F3E9E1]">
+                <div class="bg-white rounded-2xl p-6 shadow-md card-hover transition-all border border-[#F3E9E1] reveal reveal-delay-1">
                     <div class="w-14 h-14 bg-[#F4E8E0] rounded-2xl flex items-center justify-center mb-5">
                         <i class="fas fa-compass text-2xl text-[#8F6E7E]"></i>
                     </div>
@@ -283,7 +516,7 @@
                     <p class="text-gray-600 text-sm leading-relaxed">Acompañamiento profesional para jóvenes y adultos en la toma de decisiones académicas y laborales.</p>
                 </div>
             </div>
-            <div class="text-center mt-12">
+            <div class="text-center mt-12 reveal">
                 <a href="#contacto" class="inline-flex items-center gap-2 bg-[#A97C9E] text-white px-7 py-3 rounded-full font-semibold shadow-md hover:bg-[#8F6E7E] transition-all duration-200">
                     Solicita más información <i class="fas fa-arrow-right"></i>
                 </a>
@@ -292,13 +525,13 @@
     </section>
 
     <!-- RESERVAS / CITAS SECTION -->
-    <section id="reservas" class="py-16 md:py-24 bg-white">
+    <section id="reservas" class="py-16 md:py-24 bg-white/80 backdrop-blur-sm">
         <div class="max-w-6xl mx-auto px-5 md:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 reveal">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 inline-block border-b-4 border-[#E5CFBF] pb-2">Agenda tu cita</h2>
                 <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Reserva tu sesión de forma rápida y sencilla. Elige el día y la hora que mejor se adapte a ti.</p>
             </div>
-            <div class="max-w-3xl mx-auto bg-[#FEF8F2] rounded-2xl shadow-lg p-6 md:p-10 border border-[#F0E5DE]">
+            <div class="max-w-3xl mx-auto bg-[#FEF8F2] rounded-2xl shadow-lg p-6 md:p-10 border border-[#F0E5DE] reveal">
                 <form id="reservaForm" class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <div>
@@ -370,15 +603,15 @@
     </section>
 
     <!-- CONTACT SECTION -->
-    <section id="contacto" class="py-16 md:py-24 bg-[#FEFAF5]">
+    <section id="contacto" class="py-16 md:py-24 bg-[#FEFAF5]/80 backdrop-blur-sm">
         <div class="max-w-6xl mx-auto px-5 md:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 reveal">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 inline-block border-b-4 border-[#E5CFBF] pb-2">Contacto</h2>
                 <p class="text-gray-600 mt-4">¿Listo para dar el primer paso? Escríbeme o llámame, estaré encantada de atenderte.</p>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Info de contacto directo -->
-                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-[#F0E5DE]">
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-[#F0E5DE] reveal">
                     <h3 class="text-2xl font-bold text-gray-800 mb-4"><i class="fas fa-phone-alt text-[#A97C9E] mr-2"></i> Comunícate conmigo</h3>
                     <div class="space-y-5">
                         <div class="flex items-center gap-4 flex-wrap">
@@ -406,7 +639,7 @@
                             </div>
                             <div>
                                 <p class="font-semibold text-gray-800">Correo electrónico</p>
-                                <a href="mailto:aspsico@oulook.es" class="text-gray-700 font-medium text-lg hover:text-[#A97C9E]">aspsico@oulook.es</a>
+                                <a href="mailto:aspsico@outlook.es" class="text-gray-700 font-medium text-lg hover:text-[#A97C9E]">aspsico@outlook.es</a>
                             </div>
                         </div>
                         <div class="flex items-center gap-4">
@@ -435,7 +668,7 @@
                 </div>
 
                 <!-- Formulario de contacto rápido -->
-                <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-[#F0E5DE]">
+                <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-[#F0E5DE] reveal reveal-delay-2">
                     <h3 class="text-2xl font-bold text-gray-800 mb-2"><i class="fas fa-envelope-open-text text-[#A97C9E] mr-2"></i> Escríbeme directamente</h3>
                     <p class="text-gray-500 text-sm mb-5">Diligencia el formulario y te responderé por WhatsApp a la brevedad</p>
                     <form id="whatsappForm" class="space-y-5">
@@ -474,7 +707,7 @@
             <div class="flex flex-wrap justify-center gap-5 mb-5">
                 <a href="https://wa.me/573053536173" target="_blank" class="text-gray-500 hover:text-[#25D366] transition"><i class="fab fa-whatsapp text-xl"></i></a>
                 <a href="tel:+573053536173" class="text-gray-500 hover:text-[#4F6F8F] transition"><i class="fas fa-phone-alt text-xl"></i></a>
-                <a href="mailto:aspsico@oulook.es" class="text-gray-500 hover:text-[#A97C9E] transition"><i class="fas fa-envelope text-xl"></i></a>
+                <a href="mailto:aspsico@outlook.es" class="text-gray-500 hover:text-[#A97C9E] transition"><i class="fas fa-envelope text-xl"></i></a>
             </div>
             <p class="text-gray-500 text-sm">© 2025 Psicóloga Paula Andrea Serna Restrepo | Universidad Católica Luis Amigo - Medellín</p>
             <p class="text-gray-400 text-xs mt-2">Cuidado integral · Acompañamiento psicológico con calidez y profesionalismo</p>
@@ -492,75 +725,54 @@
 
     <script>
         // ==========================================
+        // PRELOADER: ocultar después de 2.5 segundos
+        // ==========================================
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                setTimeout(function() {
+                    preloader.classList.add('hidden');
+                    setTimeout(function() {
+                        preloader.style.display = 'none';
+                    }, 800);
+                }, 2500);
+            }
+        });
+
+        // ==========================================
         // MEDIDAS DE SEGURIDAD ANTI-INSPECCIÓN
         // ==========================================
-        
-        // 1. Deshabilitar el clic derecho (Menú contextual)
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
         });
 
-        // 2. Deshabilitar atajos de teclado comunes para inspeccionar
         document.addEventListener('keydown', function(e) {
-            // F12
-            if (e.key === 'F12' || e.keyCode === 123) {
-                e.preventDefault();
-                return false;
-            }
-            
-            // Ctrl+Shift+I (Inspeccionar)
-            if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.keyCode === 73)) {
-                e.preventDefault();
-                return false;
-            }
-
-            // Ctrl+Shift+J (Consola)
-            if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j' || e.keyCode === 74)) {
-                e.preventDefault();
-                return false;
-            }
-
-            // Ctrl+U (Ver código fuente)
-            if (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.keyCode === 85)) {
-                e.preventDefault();
-                return false;
-            }
-
-            // Ctrl+S (Guardar página)
-            if (e.ctrlKey && (e.key === 'S' || e.key === 's' || e.keyCode === 83)) {
-                e.preventDefault();
-                return false;
-            }
+            if (e.key === 'F12' || e.keyCode === 123) { e.preventDefault(); return false; }
+            if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.keyCode === 73)) { e.preventDefault(); return false; }
+            if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j' || e.keyCode === 74)) { e.preventDefault(); return false; }
+            if (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.keyCode === 85)) { e.preventDefault(); return false; }
+            if (e.ctrlKey && (e.key === 'S' || e.key === 's' || e.keyCode === 83)) { e.preventDefault(); return false; }
         });
 
         // ==========================================
-        // FUNCIONALIDAD DE FORMULARIOS
+        // FUNCIONALIDAD DE FORMULARIOS (CORREGIDA)
         // ==========================================
-
-        // Formulario de contacto que envía a WhatsApp
         const form = document.getElementById('whatsappForm');
         if(form) {
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const nombre = document.getElementById('nombre')?.value.trim() || '';
                 const telefono = document.getElementById('telefono_opcional')?.value.trim() || '';
-                let mensaje = document.getElementById('mensaje')?.value.trim() || '';
+                const mensaje = document.getElementById('mensaje')?.value.trim() || '';
 
-                if(!nombre) {
-                    alert('Por favor, ingresa tu nombre para poder atenderte mejor.');
-                    return;
-                }
-                if(!mensaje) {
-                    alert('Por favor, escribe un mensaje para enviar tu consulta.');
-                    return;
-                }
+                if(!nombre) { alert('Por favor, ingresa tu nombre para poder atenderte mejor.'); return; }
+                if(!mensaje) { alert('Por favor, escribe un mensaje para enviar tu consulta.'); return; }
 
-                let textoPersonalizado = `Hola, soy ${nombre}. `;
-                if(telefono) textoPersonalizado += `Mi teléfono es ${telefono}. `;
-                textoPersonalizado += `Me comunico para: ${mensaje}`;
-                textoPersonalizado += `%0A%0A✨ *Información adicional:* Me gustaría agendar una cita o recibir orientación. %0A¡Gracias!`;
+                let texto = `Hola, soy ${nombre}. `;
+                if(telefono) texto += `Mi teléfono es ${telefono}. `;
+                texto += `Me comunico para: ${mensaje}\n\n✨ *Información adicional:* Me gustaría agendar una cita o recibir orientación.\n¡Gracias!`;
 
-                const textoCodificado = encodeURIComponent(textoPersonalizado);
+                const textoCodificado = encodeURIComponent(texto);
                 const numeroWhatsApp = '573053536173';
                 const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${textoCodificado}`;
                 
@@ -569,7 +781,6 @@
             });
         }
 
-        // Formulario de reserva de citas
         const reservaForm = document.getElementById('reservaForm');
         if(reservaForm) {
             reservaForm.addEventListener('submit', function(e) {
@@ -588,34 +799,26 @@
                     return;
                 }
 
-                // Formatear fecha para mejor legibilidad
                 const fechaObj = new Date(fecha + 'T00:00:00');
-                const fechaFormateada = fechaObj.toLocaleDateString('es-ES', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
-
+                const fechaFormateada = fechaObj.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
                 const modalidadTexto = modalidad === 'presencial' ? 'Presencial en Medellín' : 'Online (videollamada)';
                 
-                let textoPersonalizado = `📅 *Nueva reserva de cita* 📅%0A%0A`;
-                textoPersonalizado += `👤 *Nombre:* ${nombre}%0A`;
-                textoPersonalizado += `📧 *Correo:* ${email}%0A`;
-                textoPersonalizado += `📱 *Teléfono:* ${telefono}%0A`;
-                textoPersonalizado += `📆 *Fecha:* ${fechaFormateada}%0A`;
-                textoPersonalizado += `🕐 *Hora:* ${hora}%0A`;
-                textoPersonalizado += `📍 *Modalidad:* ${modalidadTexto}%0A`;
-                if(mensaje) textoPersonalizado += `📝 *Mensaje:* ${mensaje}%0A`;
-                textoPersonalizado += `%0A🙏 ¡Espero confirmación de mi cita, gracias!`;
+                let texto = `📅 *Nueva reserva de cita* 📅\n\n`;
+                texto += `👤 *Nombre:* ${nombre}\n`;
+                texto += `📧 *Correo:* ${email}\n`;
+                texto += `📱 *Teléfono:* ${telefono}\n`;
+                texto += `📆 *Fecha:* ${fechaFormateada}\n`;
+                texto += `🕐 *Hora:* ${hora}\n`;
+                texto += `📍 *Modalidad:* ${modalidadTexto}\n`;
+                if(mensaje) texto += `📝 *Mensaje:* ${mensaje}\n`;
+                texto += `\n🙏 ¡Espero confirmación de mi cita, gracias!`;
 
-                const textoCodificado = encodeURIComponent(textoPersonalizado);
+                const textoCodificado = encodeURIComponent(texto);
                 const numeroWhatsApp = '573053536173';
                 const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${textoCodificado}`;
                 
                 window.open(urlWhatsApp, '_blank');
                 alert('✅ Reserva enviada. Se abrirá WhatsApp para que confirmes los detalles con Paula.');
-                
-                // Resetear el formulario
                 reservaForm.reset();
             });
         }
@@ -633,7 +836,7 @@
             });
         });
 
-        // Establecer fecha mínima para el input de fecha (hoy)
+        // Fecha mínima hoy
         const fechaInput = document.getElementById('res_fecha');
         if(fechaInput) {
             const hoy = new Date();
@@ -642,6 +845,31 @@
             const day = String(hoy.getDate()).padStart(2, '0');
             fechaInput.min = `${year}-${month}-${day}`;
         }
+
+        // ==========================================
+        // LÓGICA DE ANIMACIÓN AL SCROLL (REVEAL)
+        // ==========================================
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        revealElements.forEach(el => {
+            revealOnScroll.observe(el);
+        });
     </script>
 </body>
 </html>
