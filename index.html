@@ -3,1241 +3,573 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Paula Andrea Serna Restrepo | Psicóloga & Bienestar Emocional</title>
-    
-    <!-- FAVICON Y OPEN GRAPH -->
-    <link rel="icon" type="image/png" href="MEDIA/favicon.png">
-    <link rel="apple-touch-icon" href="MEDIA/favicon.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://psicoeducativo.site/">
-    <meta property="og:title" content="Paula Andrea Serna Restrepo | Psicóloga">
-    <meta property="og:description" content="Un espacio seguro para tu bienestar emocional. Acompañamiento psicológico con calidez, ética y profesionalismo en Medellín y online.">
-    <meta property="og:image" content="https://psicoeducativo.site/MEDIA/paula-compartir.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Paula Andrea Serna Restrepo | Psicóloga">
-    <meta name="twitter:description" content="Acompañamiento psicológico con calidez, ética y profesionalismo.">
-    <meta name="twitter:image" content="https://psicoeducativo.site/MEDIA/paula-compartir.jpg">
-
-    <!-- CIBERSEGURIDAD -->
-    <style id="antiClickjack">body{display:none !important;}</style>
-    <script type="text/javascript">
-        if (self === top) {
-            var antiClickjack = document.getElementById("antiClickjack");
-            antiClickjack.parentNode.removeChild(antiClickjack);
-        } else {
-            top.location = self.location;
-        }
-    </script>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://wa.me;">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-
+    <title>Paula Andrea Serna Restrepo | Psicóloga</title>
     <!-- TailwindCSS + Font Awesome + Google Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            /* Nueva paleta moderna y vibrante */
-            --primary: #7C3AED;      /* Violeta vibrante */
-            --primary-light: #A78BFA;
-            --secondary: #EC4899;    /* Rosa intenso */
-            --secondary-light: #F9A8D4;
-            --accent: #06B6D4;       /* Turquesa */
-            --accent-light: #67E8F9;
-            --gold: #F59E0B;
-            --gold-light: #FCD34D;
-            --dark: #1E1B4B;         /* Azul profundo */
-            --light: #F5F3FF;        /* Lavanda muy claro */
-            --cream: #FDF2F8;        /* Rosa muy claro */
-            --text: #1E1B4B;
-            --text-light: #4C1D95;
-        }
-
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #F5F3FF 0%, #FDF2F8 50%, #ECFEFF 100%);
-            color: var(--text);
-            overflow-x: hidden;
+            /* Desactiva la selección de texto para que no puedan copiar fácilmente */
             -webkit-user-select: none;
+            -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
-            line-height: 1.7;
-            position: relative;
-            min-height: 100vh;
         }
-
-        h1, h2, h3, .font-elegant {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            letter-spacing: -0.02em;
+        html {
+            scroll-behavior: smooth;
         }
-
-        /* ============================================
-           FONDO ANIMADO GLOBAL – GRADIENTE DINÁMICO
-           ============================================ */
-        .bg-animated {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            pointer-events: none;
-            z-index: 0;
+        body {
+            background: #FFFDF9;
         }
-
-        .bg-animated .bg-circle {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.5;
-            will-change: transform;
-        }
-
-        .bg-circle-1 {
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(124, 58, 237, 0.4) 0%, transparent 70%);
-            top: -15%;
-            left: -15%;
-            animation: moveCircle1 40s ease-in-out infinite;
-        }
-
-        .bg-circle-2 {
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(236, 72, 153, 0.35) 0%, transparent 70%);
-            top: 25%;
-            right: -15%;
-            animation: moveCircle2 50s ease-in-out infinite;
-        }
-
-        .bg-circle-3 {
-            width: 550px;
-            height: 550px;
-            background: radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, transparent 70%);
-            bottom: -15%;
-            left: 15%;
-            animation: moveCircle3 55s ease-in-out infinite;
-        }
-
-        .bg-circle-4 {
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, transparent 70%);
-            top: 55%;
-            left: 45%;
-            animation: moveCircle4 45s ease-in-out infinite;
-        }
-
-        @keyframes moveCircle1 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(100px, 80px) scale(1.15); }
-            66% { transform: translate(50px, 150px) scale(0.9); }
-        }
-
-        @keyframes moveCircle2 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(-80px, 100px) scale(1.1); }
-            66% { transform: translate(-140px, 40px) scale(0.95); }
-        }
-
-        @keyframes moveCircle3 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(70px, -60px) scale(1.08); }
-            66% { transform: translate(120px, -120px) scale(0.92); }
-        }
-
-        @keyframes moveCircle4 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(-70px, 60px) scale(1.12); }
-            66% { transform: translate(-120px, 110px) scale(0.88); }
-        }
-
-        /* ============================================
-           HEADER MODERNO CON GRADIENTE
-           ============================================ */
-        .header-modern {
-            background: linear-gradient(135deg, #7C3AED 0%, #EC4899 50%, #06B6D4 100%);
-            position: relative;
-            z-index: 20;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(124, 58, 237, 0.3);
-        }
-
-        .header-modern::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -20%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            animation: pulseGlow 8s ease-in-out infinite;
-        }
-
-        .header-modern::after {
-            content: '';
-            position: absolute;
-            bottom: -60%;
-            right: -10%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            animation: pulseGlow 10s ease-in-out infinite reverse;
-        }
-
-        @keyframes pulseGlow {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-
-        .logo-icon-modern {
-            font-size: 3.5rem;
-            color: #FFFFFF;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .logo-text-modern {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            line-height: 1.1;
-            color: #FFFFFF;
-            font-weight: 700;
-            text-shadow: 0 4px 25px rgba(0,0,0,0.2);
-            background: linear-gradient(to right, #FFFFFF, #FCD34D);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .logo-sub-modern {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.95);
-            font-weight: 500;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            margin-top: 0.5rem;
-        }
-
-        /* --- NAVEGACIÓN --- */
-        .nav-link {
-            font-size: 0.9rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #FFFFFF;
-            font-weight: 600;
-            position: relative;
+        /* Custom soft shadow and card styles */
+        .card-hover {
             transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
-            opacity: 0.9;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
         }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(90deg, #FCD34D, #FFFFFF);
-            transition: width 0.4s ease;
-            border-radius: 2px;
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.1);
         }
-        .nav-link:hover::after {
-            width: 80%;
+        .hero-bg {
+            background: linear-gradient(135deg, #FEF6E9 0%, #FFFFFF 100%);
         }
-        .nav-link:hover {
-            opacity: 1;
-            background: rgba(255, 255, 255, 0.1);
+        .btn-wa {
+            background-color: #25D366;
+            transition: all 0.2s ease;
         }
-
-        /* --- HERO SECTION MODERNO --- */
-        .hero-section {
-            background: linear-gradient(145deg, rgba(245, 243, 255, 0.95) 0%, rgba(253, 242, 248, 0.9) 40%, rgba(236, 254, 255, 0.85) 100%);
-            color: var(--text);
-            position: relative;
-            overflow: hidden;
-            padding-bottom: 4rem;
+        .btn-wa:hover {
+            background-color: #1da15a;
+            transform: scale(1.02);
         }
-
-        .hero-bg-shapes {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-            pointer-events: none;
+        .btn-call {
+            background-color: #4F6F8F;
+            transition: all 0.2s ease;
         }
-        .shape {
-            position: absolute;
-            border-radius: 50%;
-            animation: float 12s infinite ease-in-out;
+        .btn-call:hover {
+            background-color: #3a546d;
+            transform: scale(1.02);
         }
-        .shape-1 { width: 600px; height: 600px; top: -200px; left: -200px; background: rgba(124, 58, 237, 0.08); animation-delay: 0s; }
-        .shape-2 { width: 400px; height: 400px; bottom: -100px; right: -100px; background: rgba(236, 72, 153, 0.08); animation-delay: -3s; }
-        .shape-3 { width: 300px; height: 300px; top: 30%; left: 10%; background: rgba(6, 182, 212, 0.08); animation-delay: -5s; }
-        .shape-4 { width: 250px; height: 250px; top: 60%; right: 10%; background: rgba(245, 158, 11, 0.08); animation-delay: -7s; }
-
-        /* ============================================
-           MARCO ORGÁNICO FLORAL PARA LA FOTO
-           ============================================ */
-        .photo-organic-wrapper {
-            position: relative;
-            width: 320px;
-            height: 420px;
-            z-index: 2;
+        .floating-wa {
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+            transition: all 0.2s ease;
         }
-
-        @media (min-width: 768px) {
-            .photo-organic-wrapper {
-                width: 400px;
-                height: 520px;
+        .floating-wa:hover {
+            transform: scale(1.08);
+            background-color: #1da15a;
+        }
+        .gradient-text {
+            background: linear-gradient(120deg, #6B4E71, #A97C9E);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .border-soft {
+            border-color: #F0E5DE;
+        }
+        ::selection {
+            background: #D9C5B0;
+            color: #2C2A2A;
+        }
+        .focus-ring:focus {
+            outline: none;
+            ring: 2px solid #A97C9E;
+            ring-offset: 2px;
+        }
+        @media (max-width: 640px) {
+            .container-padding {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
             }
         }
-
-        .photo-organic-frame {
-            position: absolute;
-            inset: 0;
-            border-radius: 58% 42% 50% 50% / 55% 48% 52% 45%;
-            overflow: hidden;
-            box-shadow: 
-                0 30px 60px rgba(124, 58, 237, 0.3),
-                0 0 0 3px rgba(255,255,255,0.6) inset;
-            border: 4px solid rgba(255,255,255,0.7);
-            animation: morph 14s ease-in-out infinite;
-            background: rgba(255,255,255,0.4);
-            backdrop-filter: blur(8px);
-            transition: transform 0.6s ease;
+        /* Estilos para el logo */
+        .logo-icon {
+            background: linear-gradient(135deg, #6B4E71, #A97C9E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.2rem;
         }
-
-        .photo-organic-frame:hover {
-            transform: scale(1.03);
+        .logo-icon-small {
+            background: linear-gradient(135deg, #6B4E71, #A97C9E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-
-        .photo-organic-frame img {
+        /* Estilo para la foto de perfil en Sobre Mí */
+        .profile-photo {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
-            transition: transform 0.8s ease;
-        }
-
-        .photo-organic-frame:hover img {
-            transform: scale(1.08);
-        }
-
-        @keyframes morph {
-            0%, 100% {
-                border-radius: 58% 42% 50% 50% / 55% 48% 52% 45%;
-            }
-            33% {
-                border-radius: 45% 55% 42% 58% / 50% 58% 42% 50%;
-            }
-            66% {
-                border-radius: 52% 48% 55% 45% / 48% 52% 48% 52%;
-            }
-        }
-
-        .photo-ring {
-            position: absolute;
-            inset: -25px;
             border-radius: 50%;
-            border: 2px dashed rgba(124, 58, 237, 0.5);
-            animation: spinSlow 30s linear infinite;
-            pointer-events: none;
-        }
-
-        @keyframes spinSlow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .float-dot {
-            position: absolute;
-            border-radius: 50%;
-            animation: floatDot 7s ease-in-out infinite;
-            pointer-events: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .dot-1 { width: 14px; height: 14px; top: -20px; right: 30px; animation-delay: 0s; background: var(--secondary); }
-        .dot-2 { width: 10px; height: 10px; bottom: 40px; left: -25px; animation-delay: -2s; background: var(--primary); }
-        .dot-3 { width: 12px; height: 12px; top: 45%; right: -32px; animation-delay: -4s; background: var(--gold); }
-        .dot-4 { width: 8px; height: 8px; bottom: -15px; right: 50%; animation-delay: -5.5s; background: var(--accent); }
-        .dot-5 { width: 11px; height: 11px; top: 20%; left: -35px; animation-delay: -1s; background: var(--secondary-light); }
-
-        @keyframes floatDot {
-            0%, 100% { transform: translateY(0) scale(1); opacity: 0.7; }
-            50% { transform: translateY(-20px) scale(1.4); opacity: 1; }
-        }
-
-        .photo-glow {
-            position: absolute;
-            inset: -60px;
-            background: radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.35) 0%, rgba(236, 72, 153, 0.2) 40%, transparent 70%);
-            filter: blur(40px);
-            z-index: -1;
-            animation: pulseGlow 6s ease-in-out infinite;
-        }
-
-        /* --- BOTONES MODERNOS --- */
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.6s ease;
-        }
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-        .btn-primary:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 18px 40px rgba(124, 58, 237, 0.5);
-        }
-
-        .btn-wa {
-            background: linear-gradient(135deg, #10B981, #059669);
-            color: white;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-wa::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.6s ease;
-        }
-        .btn-wa:hover::before {
-            left: 100%;
-        }
-        .btn-wa:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 18px 40px rgba(16, 185, 129, 0.5);
-        }
-
-        /* --- TARJETAS DE SERVICIOS MODERNAS --- */
-        .service-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(124, 58, 237, 0.1);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            z-index: 1;
-            border-radius: 2rem;
-            overflow: hidden;
-        }
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.6s ease;
-        }
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-        .service-card:hover {
-            box-shadow: 0 25px 50px rgba(124, 58, 237, 0.2);
-            border-color: var(--primary-light);
-            transform: translateY(-12px);
-            background: rgba(255, 255, 255, 0.95);
-        }
-
-        /* --- ANIMACIONES DE SCROLL --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-        .reveal-delay-4 { transition-delay: 0.4s; }
-
-        /* --- FORMULARIOS MODERNOS --- */
-        input, select, textarea {
-            background-color: rgba(255, 255, 255, 0.9);
-            border: 2px solid rgba(124, 58, 237, 0.15);
-            border-radius: 1rem;
-            padding: 0.9rem 1.2rem;
-            width: 100%;
-            transition: all 0.3s ease;
-            -webkit-user-select: text;
-            -ms-user-select: text;
-            user-select: text;
-            color: var(--text);
-            font-size: 1rem;
-        }
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15);
-            transform: translateY(-2px);
-            background-color: #fff;
-        }
-        input::placeholder, textarea::placeholder {
-            color: rgba(30, 27, 75, 0.4);
-        }
-
-        /* ============================================
-           FOOTER MODERNO
-           ============================================ */
-        .footer-modern {
-            background: linear-gradient(160deg, #1E1B4B 0%, #312E81 40%, #4C1D95 100%);
-            position: relative;
-            overflow: hidden;
-            color: #E0E7FF;
-            padding: 5rem 0 2rem;
-            z-index: 1;
-        }
-
-        .footer-modern::before {
-            content: '';
-            position: absolute;
-            top: -150px;
-            left: -150px;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(124, 58, 237, 0.2) 0%, transparent 70%);
-            border-radius: 50%;
-            filter: blur(80px);
-            pointer-events: none;
-        }
-        .footer-modern::after {
-            content: '';
-            position: absolute;
-            bottom: -100px;
-            right: -100px;
-            width: 450px;
-            height: 450px;
-            background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            filter: blur(70px);
-            pointer-events: none;
-        }
-
-        .footer-link {
-            position: relative;
-            display: inline-block;
-            color: #E0E7FF;
-            transition: all 0.3s ease;
-            padding-left: 0;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-        .footer-link::before {
-            content: '→';
-            position: absolute;
-            left: -20px;
-            opacity: 0;
-            color: var(--gold-light);
-            transition: all 0.3s ease;
-        }
-        .footer-link:hover {
-            color: var(--gold-light);
-            padding-left: 12px;
-        }
-        .footer-link:hover::before {
-            opacity: 1;
-            left: -8px;
-        }
-
-        .social-float {
-            width: 52px;
-            height: 52px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            color: #E0E7FF;
-        }
-        .social-float:hover {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-color: transparent;
-            color: white;
-            transform: translateY(-8px) rotate(8deg);
-            border-radius: 50%;
-            box-shadow: 0 15px 30px rgba(124, 58, 237, 0.4);
-        }
-
-        .newsletter-modern {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            transition: all 0.4s ease;
-            backdrop-filter: blur(10px);
-        }
-        .newsletter-modern:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(124, 58, 237, 0.3);
-        }
-
-        .newsletter-input {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            color: white;
-            border-radius: 50px;
-            padding: 14px 24px;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-        }
-        .newsletter-input:focus {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--primary-light);
-            box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.2);
-        }
-        .newsletter-input::placeholder {
-            color: rgba(255, 255, 255, 0.4);
-        }
-
-        .btn-subscribe {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border-radius: 50px;
-            padding: 14px 30px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            letter-spacing: 0.03em;
-            box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
-        }
-        .btn-subscribe:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(124, 58, 237, 0.45);
-        }
-
-        .logo-glow {
-            text-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
-        }
-
-        .footer-divider-modern {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.4), rgba(236, 72, 153, 0.4), transparent);
-            border-radius: 50%;
-            margin: 3rem 0 2rem;
-            position: relative;
-        }
-        .footer-divider-modern::after {
-            content: '✦';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: var(--gold-light);
-            font-size: 1.2rem;
-            background: #1E1B4B;
-            padding: 0 1.5rem;
-        }
-
-        .love-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(124, 58, 237, 0.1);
-            border: 1px solid rgba(124, 58, 237, 0.2);
-            padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-        }
-        .love-badge:hover {
-            background: rgba(124, 58, 237, 0.2);
-            transform: scale(1.05);
-        }
-
-        .calm-quote {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            color: var(--primary);
-            font-size: 1.2rem;
-            line-height: 1.8;
-            font-weight: 500;
-        }
-
-        .breathing-circle {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(124, 58, 237, 0.15), rgba(236, 72, 153, 0.08));
-            border: 2px solid rgba(124, 58, 237, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            animation: breathe 6s ease-in-out infinite;
-            box-shadow: 0 0 40px rgba(124, 58, 237, 0.2);
-        }
-
-        @keyframes breathe {
-            0%, 100% { transform: scale(1); opacity: 0.7; }
-            50% { transform: scale(1.2); opacity: 1; }
-        }
-
-        /* --- GRADIENT TEXT --- */
-        .gradient-text {
-            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        @media (max-width: 640px) {
-            .nav-link {
-                font-size: 0.75rem;
-                letter-spacing: 0.05em;
-                padding: 0.4rem 0.6rem;
-            }
-            .logo-text-modern {
-                font-size: 2rem;
-            }
-            .logo-sub-modern {
-                font-size: 0.85rem;
-                letter-spacing: 0.2em;
-            }
-        }
-
-        /* --- SCROLLBAR PERSONALIZADA --- */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--light);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            /* Evita que descarguen la imagen fácilmente arrastrándola */
+            pointer-events: none; 
         }
     </style>
 </head>
-<body class="antialiased">
-
-    <!-- FONDO ANIMADO GLOBAL -->
-    <div class="bg-animated" aria-hidden="true">
-        <div class="bg-circle bg-circle-1"></div>
-        <div class="bg-circle bg-circle-2"></div>
-        <div class="bg-circle bg-circle-3"></div>
-        <div class="bg-circle bg-circle-4"></div>
-    </div>
+<body class="antialiased text-gray-800">
 
     <!-- FLOATING WHATSAPP BUTTON -->
     <a href="https://wa.me/573053536173?text=Hola%20Paula%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20o%20tener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tus%20servicios%20de%20psicolog%C3%ADa." 
        target="_blank" 
        rel="noopener noreferrer"
-       class="fixed bottom-6 right-6 z-50 bg-gradient-to-br from-[#10B981] to-[#059669] text-white p-4 rounded-2xl shadow-2xl hover:scale-110 transition-all duration-300 flex items-center justify-center w-16 h-16 md:w-18 md:h-18 group hover:rounded-full"
+       class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-xl floating-wa hover:shadow-2xl transition-all duration-300 flex items-center justify-center w-14 h-14 md:w-16 md:h-16 group"
        aria-label="WhatsApp: contactar con Paula">
-        <i class="fab fa-whatsapp text-2xl md:text-3xl group-hover:rotate-12 transition-transform"></i>
+        <i class="fab fa-whatsapp text-2xl md:text-3xl group-hover:scale-110 transition-transform"></i>
     </a>
 
-    <!-- HEADER MODERNO -->
-    <nav class="header-modern pt-10 pb-6 relative z-20">
-        <div class="max-w-6xl mx-auto px-5">
-            <div class="logo-container mb-8 reveal">
-                <i class="fas fa-spa logo-icon-modern"></i>
-                <div class="logo-text-modern">Paula Andrea</div>
-                <div class="logo-text-modern" style="font-size: 2.4rem;">Serna Restrepo</div>
-                <div class="logo-sub-modern">Psicóloga & Bienestar Emocional</div>
+    <!-- NAVBAR (con logo actual) -->
+    <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-[#F0E5DE] shadow-sm">
+        <div class="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center space-x-3">
+                <!-- Logo actual -->
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-brain logo-icon"></i>
+                    <span class="font-bold text-xl md:text-2xl tracking-tight text-gray-800">Paula Serna<span class="text-[#A97C9E]"> | Psicología</span></span>
+                </div>
             </div>
-
-            <div class="flex justify-center gap-4 md:gap-8 border-b border-white/20 pb-4 reveal reveal-delay-1 flex-wrap">
-                <a href="#inicio" class="nav-link">Inicio</a>
-                <a href="#sobre-mi" class="nav-link">Sobre mí</a>
-                <a href="#servicios" class="nav-link">Servicios</a>
-                <a href="#reservas" class="nav-link">Reservas</a>
-                <a href="#contacto" class="nav-link">Contacto</a>
+            <div class="flex flex-wrap gap-5 text-sm md:text-base font-medium">
+                <a href="#inicio" class="hover:text-[#A97C9E] transition-colors duration-200">Inicio</a>
+                <a href="#sobre-mi" class="hover:text-[#A97C9E] transition-colors duration-200">Sobre mí</a>
+                <a href="#servicios" class="hover:text-[#A97C9E] transition-colors duration-200">Servicios</a>
+                <a href="#contacto" class="hover:text-[#A97C9E] transition-colors duration-200">Contacto</a>
+                <a href="#reservas" class="hover:text-[#A97C9E] transition-colors duration-200">Reservas</a>
             </div>
         </div>
     </nav>
 
-    <!-- CONTENT WRAPPER -->
-    <div class="content-wrapper relative z-10">
-
-        <!-- HERO SECTION -->
-        <section id="inicio" class="hero-section">
-            <div class="hero-bg-shapes">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
-                <div class="shape shape-4"></div>
-            </div>
-
-            <div class="max-w-6xl mx-auto px-5 relative z-10">
-                <div class="flex flex-col md:flex-row items-center gap-12 pt-12 md:pt-20">
-                    
-                    <div class="flex-1 text-center md:text-left order-2 md:order-1 reveal reveal-delay-2">
-                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-[#1E1B4B] font-elegant">
-                            Un espacio para respirar, sentir y sanar
-                            <span class="block text-2xl md:text-3xl mt-4 font-normal italic gradient-text">Aquí, a tu ritmo</span>
-                        </h1>
-                        
-                        <div class="space-y-4 text-lg text-[#1E1B4B]/80 leading-relaxed max-w-xl mx-auto md:mx-0">
-                            <p class="calm-quote">"No estás solo/a en esto. Permítete ser acompañado/a con calidez y profesionalismo."</p>
-                            <p>Mi enfoque integra la evidencia científica con una mirada profundamente humana. Trabajamos juntos/as para que encuentres claridad, calma y bienestar en tu día a día.</p>
-                            <p class="font-semibold gradient-text text-xl">Tu bienestar emocional es el centro de este espacio.</p>
-                        </div>
-
-                        <div class="flex flex-wrap gap-4 mt-8 justify-center md:justify-start">
-                            <a href="https://wa.me/573053536173?text=Hola%20Paula%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita." 
-                               target="_blank" rel="noopener noreferrer"
-                               class="btn-wa px-8 py-4 rounded-full font-semibold flex items-center gap-2 shadow-lg text-lg">
-                                <i class="fab fa-whatsapp text-xl"></i> Agenda tu cita
-                            </a>
-                            <a href="#servicios" 
-                               class="btn-primary px-8 py-4 rounded-full font-semibold flex items-center gap-2 shadow-lg text-lg">
-                                <i class="fas fa-leaf"></i> Conoce más
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="flex-1 flex justify-center order-1 md:order-2 reveal reveal-delay-3">
-                        <div class="photo-organic-wrapper">
-                            <div class="photo-glow"></div>
-                            <div class="photo-ring"></div>
-                            <div class="photo-organic-frame">
-                                <img src="MEDIA/paula.jpeg" alt="Paula Andrea Serna Restrepo - Psicóloga">
-                            </div>
-                            <div class="float-dot dot-1"></div>
-                            <div class="float-dot dot-2"></div>
-                            <div class="float-dot dot-3"></div>
-                            <div class="float-dot dot-4"></div>
-                            <div class="float-dot dot-5"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-16 pt-8 border-t border-[#D4C8E8] grid grid-cols-1 md:grid-cols-3 gap-8 items-center reveal reveal-delay-4">
-                    <div class="flex items-center gap-4 justify-center md:justify-start">
-                        <div class="breathing-circle">
-                            <i class="fas fa-heart text-4xl text-[#7C3AED]"></i>
-                        </div>
-                        <div>
-                            <p class="font-bold text-[#1E1B4B] text-lg">Respira</p>
-                            <p class="text-sm text-[#1E1B4B]/60">Tómate tu tiempo</p>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <p class="calm-quote text-lg">"La calma es el arte de dejar ir lo que no puedes controlar"</p>
-                    </div>
-                    <div class="flex items-center gap-4 justify-center md:justify-end">
-                        <div class="text-right">
-                            <p class="font-bold text-[#1E1B4B] text-lg">Estás en un lugar seguro</p>
-                            <p class="text-sm text-[#1E1B4B]/60">Confía en tu proceso</p>
-                        </div>
-                        <i class="fas fa-shield-heart text-4xl text-[#EC4899]"></i>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ABOUT SECTION -->
-        <section id="sobre-mi" class="py-24 bg-white/80 backdrop-blur-sm relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-96 h-96 bg-[#A78BFA] rounded-full blur-3xl opacity-20 -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
-            <div class="absolute bottom-0 left-0 w-80 h-80 bg-[#F9A8D4] rounded-full blur-3xl opacity-20 translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
-            
-            <div class="max-w-6xl mx-auto px-5 relative z-10">
-                <div class="text-center mb-16 reveal">
-                    <h2 class="text-4xl md:text-5xl font-bold gradient-text font-elegant mb-4">Sobre mí</h2>
-                    <div class="w-24 h-1 bg-gradient-to-r from-[#7C3AED] via-[#EC4899] to-[#06B6D4] mx-auto rounded-full"></div>
-                    <p class="text-[#1E1B4B]/60 mt-6 italic text-lg">Conóceme un poco más</p>
-                </div>
-                
-                <div class="max-w-3xl mx-auto space-y-6 text-lg text-[#1E1B4B]/80 leading-relaxed reveal reveal-delay-2">
-                    <p class="font-semibold gradient-text text-xl text-center">Psicóloga graduada de la Universidad Católica Luis Amigó (2024)</p>
-                    <p>Soy <strong class="text-[#1E1B4B]">Paula Andrea Serna Restrepo</strong>. Mi formación me ha brindado herramientas basadas en la evidencia científica, pero siempre con un enfoque humano, cálido y libre de juicios.</p>
-                    <p class="flex items-center justify-center gap-3 gradient-text font-semibold text-lg">
-                        <i class="fas fa-graduation-cap text-2xl"></i> Tecnóloga en Gestión Comunitaria
+    <!-- HERO SECTION -->
+    <section id="inicio" class="hero-bg py-12 md:py-20">
+        <div class="max-w-6xl mx-auto px-5 md:px-8">
+            <div class="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-16">
+                <!-- Texto hero -->
+                <div class="flex-1 text-center md:text-left">
+                    <span class="inline-block bg-[#F1E4DA] text-[#6B4E71] px-4 py-1 rounded-full text-sm font-semibold mb-4 shadow-sm">
+                        <i class="fas fa-graduation-cap mr-1"></i> Graduada 2024 · Universidad Católica Luis Amigo
+                    </span>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-gray-800">
+                        Hola, soy <span class="gradient-text">Paula Andrea</span><br>
+                        <span class="text-[#6B4E71]">Serna Restrepo</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 mt-5 leading-relaxed max-w-xl mx-auto md:mx-0">
+                        Psicóloga con enfoque humano y cálido. Acompañamiento profesional para tu bienestar emocional, ansiedad, crecimiento personal y más. 
+                        <span class="font-medium text-[#7D5D6E]">Atención presencial en Medellín y online en todo Colombia.</span>
                     </p>
-                    <p>Creo firmemente en el poder transformador de un espacio terapéutico seguro, donde puedas explorar tus emociones, entender tus patrones y construir una vida con mayor bienestar y autenticidad.</p>
-                    <p>Actualmente atiendo a adolescentes, adultos y personas en procesos de crecimiento personal, manejo de ansiedad, autoestima, duelos y transiciones vitales.</p>
-                    <div class="flex flex-wrap gap-3 pt-4 justify-center">
-                        <span class="bg-gradient-to-r from-[#7C3AED]/10 to-[#EC4899]/10 text-[#7C3AED] px-6 py-2.5 rounded-full text-sm font-semibold border border-[#7C3AED]/20">Escucha activa</span>
-                        <span class="bg-gradient-to-r from-[#EC4899]/10 to-[#06B6D4]/10 text-[#EC4899] px-6 py-2.5 rounded-full text-sm font-semibold border border-[#EC4899]/20">Terapia Integrativa</span>
-                        <span class="bg-gradient-to-r from-[#06B6D4]/10 to-[#F59E0B]/10 text-[#06B6D4] px-6 py-2.5 rounded-full text-sm font-semibold border border-[#06B6D4]/20">Acompañamiento respetuoso</span>
+                    <div class="flex flex-wrap gap-4 mt-8 justify-center md:justify-start">
+                        <a href="https://wa.me/573053536173?text=Hola%20Paula%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20o%20tener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tus%20servicios%20de%20psicolog%C3%ADa." 
+                           target="_blank" 
+                           class="btn-wa text-white px-6 py-3 rounded-full font-semibold flex items-center gap-2 shadow-md transition-all duration-200">
+                            <i class="fab fa-whatsapp text-xl"></i> Agendar cita por WhatsApp
+                        </a>
+                        <a href="tel:+573053536163" class="btn-call text-white px-6 py-3 rounded-full font-semibold flex items-center gap-2 shadow-md transition-all duration-200">
+                            <i class="fas fa-phone-alt"></i> Llamar ahora
+                        </a>
+                    </div>
+                    <div class="flex flex-wrap gap-6 justify-center md:justify-start mt-6 text-sm text-gray-500">
+                        <div class="flex items-center gap-1"><i class="fas fa-check-circle text-[#A97C9E]"></i> <span>Espacio seguro</span></div>
+                        <div class="flex items-center gap-1"><i class="fas fa-check-circle text-[#A97C9E]"></i> <span>Confidencialidad</span></div>
+                        <div class="flex items-center gap-1"><i class="fas fa-check-circle text-[#A97C9E]"></i> <span>Enfoque personalizado</span></div>
+                    </div>
+                </div>
+                <!-- Ilustración decorativa -->
+                <div class="flex-1 flex justify-center relative">
+                    <div class="bg-[#F8F0EA] w-72 h-72 md:w-96 md:h-96 rounded-full flex items-center justify-center shadow-xl relative overflow-hidden">
+                        <div class="absolute -top-8 -left-8 w-32 h-32 bg-[#EADBCE] rounded-full opacity-40"></div>
+                        <div class="absolute bottom-6 right-6 w-24 h-24 bg-[#D9C5B0] rounded-full opacity-30"></div>
+                        <div class="text-center z-10">
+                            <i class="fas fa-brain text-6xl md:text-7xl text-[#B28B9C] mb-4 drop-shadow-sm"></i>
+                            <i class="fas fa-heart text-5xl md:text-6xl text-[#D9A7B0] mx-2"></i>
+                            <i class="fas fa-leaf text-5xl md:text-6xl text-[#8FB09E] mx-2"></i>
+                            <p class="text-sm font-medium text-gray-600 mt-4">✨ Calidez y ciencia ✨</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- SERVICES SECTION -->
-        <section id="servicios" class="py-24 bg-gradient-to-b from-[#F5F3FF] to-white relative overflow-hidden">
-            <div class="absolute top-20 right-0 w-72 h-72 bg-[#A78BFA] rounded-full blur-3xl opacity-25 pointer-events-none"></div>
-            <div class="absolute bottom-20 left-0 w-64 h-64 bg-[#F9A8D4] rounded-full blur-3xl opacity-25 pointer-events-none"></div>
-            
-            <div class="max-w-6xl mx-auto px-5 relative z-10">
-                <div class="text-center mb-16 reveal">
-                    <h2 class="text-4xl md:text-5xl font-bold gradient-text font-elegant mb-4">Mis servicios</h2>
-                    <div class="w-24 h-1 bg-gradient-to-r from-[#7C3AED] via-[#EC4899] to-[#06B6D4] mx-auto rounded-full"></div>
-                    <p class="text-[#1E1B4B]/60 mt-6 max-w-2xl mx-auto italic text-lg">Acompañamiento psicológico personalizado para que encuentres bienestar en cada etapa de tu vida</p>
-                </div>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="service-card p-8 text-center reveal reveal-delay-1">
-                        <div class="w-20 h-20 bg-gradient-to-br from-[#7C3AED] to-[#A78BFA] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                            <i class="fas fa-user-friends text-3xl text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-[#1E1B4B] mb-3 font-elegant">Terapia Individual</h3>
-                        <p class="text-[#1E1B4B]/60 text-sm leading-relaxed">Espacio uno a uno para explorar emociones, superar bloqueos y fortalecer tu autoconocimiento.</p>
+    <!-- ABOUT SECTION -->
+    <section id="sobre-mi" class="py-16 md:py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-5 md:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 inline-block border-b-4 border-[#E5CFBF] pb-2">Sobre mí</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Conóceme, mi formación y mi manera de acompañarte</p>
+            </div>
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <!-- Avatar / Foto Profesional -->
+                <div class="flex-shrink-0 bg-[#FEF6EF] rounded-3xl p-8 shadow-md w-full lg:w-auto">
+                    <div class="w-56 h-56 mx-auto rounded-full flex items-center justify-center shadow-inner overflow-hidden border-4 border-white">
+                        <!-- Aquí se inserta la imagen paula.jpeg de la carpeta MEDIA -->
+                        <img src="./MEDIA/paula.jpeg" alt="Paula Andrea Serna Restrepo" class="profile-photo" onerror="this.src='https://via.placeholder.com/250?text=Foto+Paula';">
                     </div>
-                    <div class="service-card p-8 text-center reveal reveal-delay-2">
-                        <div class="w-20 h-20 bg-gradient-to-br from-[#EC4899] to-[#F9A8D4] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                            <i class="fas fa-brain text-3xl text-white"></i>
+                    <div class="mt-6 text-center">
+                        <div class="flex items-center justify-center gap-2 text-[#6B4E71] font-semibold bg-[#F6EDE6] rounded-full py-2 px-4">
+                            <i class="fas fa-university"></i> <span>Universidad Católica Luis Amigo, Medellín</span>
                         </div>
-                        <h3 class="text-xl font-bold text-[#1E1B4B] mb-3 font-elegant">Manejo de Ansiedad</h3>
-                        <p class="text-[#1E1B4B]/60 text-sm leading-relaxed">Técnicas basadas en evidencia para regular la ansiedad, el estrés y recuperar tu calma interior.</p>
-                    </div>
-                    <div class="service-card p-8 text-center reveal reveal-delay-3">
-                        <div class="w-20 h-20 bg-gradient-to-br from-[#06B6D4] to-[#67E8F9] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                            <i class="fas fa-heart text-3xl text-white"></i>
+                        <!-- CAMBIO APLICADO: Se eliminó "Graduada con honores" -->
+                        <p class="text-gray-700 mt-3"><i class="fas fa-calendar-alt text-[#A97C9E] mr-1"></i> Graduada · 2024</p>
+                        
+                        <!-- Texto modificado: Profesional Independiente y tecnóloga -->
+                        <div class="mt-4 flex flex-col gap-2 text-sm text-gray-600 font-medium">
+                            <span class="bg-gray-100 px-3 py-1 rounded-full"><i class="fas fa-briefcase mr-1"></i> Profesional Independiente</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full"><i class="fas fa-graduation-cap mr-1"></i> Tecnóloga en Gestión Comunitaria</span>
+                            <div class="flex justify-center gap-3 mt-1">
+                                <span class="bg-gray-100 px-3 py-1 rounded-full"><i class="fas fa-globe-americas mr-1"></i> Atención online</span>
+                                <span class="bg-gray-100 px-3 py-1 rounded-full"><i class="fas fa-map-marker-alt mr-1"></i> Medellín - Presencial</span>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-bold text-[#1E1B4B] mb-3 font-elegant">Autoestima & Crecimiento</h3>
-                        <p class="text-[#1E1B4B]/60 text-sm leading-relaxed">Fortalece tu confianza, autoimagen y desarrolla herramientas para vivir con mayor plenitud.</p>
-                    </div>
-                    <div class="service-card p-8 text-center reveal reveal-delay-4">
-                        <div class="w-20 h-20 bg-gradient-to-br from-[#F59E0B] to-[#FCD34D] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                            <i class="fas fa-seedling text-3xl text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-[#1E1B4B] mb-3 font-elegant">Apoyo Adolescente</h3>
-                        <p class="text-[#1E1B4B]/60 text-sm leading-relaxed">Acompañamiento en crisis, transiciones y desafíos propios de la adolescencia con empatía.</p>
                     </div>
                 </div>
-
-                <div class="mt-16 text-center reveal">
-                    <div class="inline-flex items-center gap-4 bg-white/80 backdrop-blur-sm px-8 py-5 rounded-full border border-[#7C3AED]/20 shadow-lg">
-                        <i class="fas fa-quote-left text-[#EC4899] text-2xl"></i>
-                        <p class="calm-quote text-xl">"Sanar no es lineal, pero cada paso cuenta"</p>
-                        <i class="fas fa-quote-right text-[#EC4899] text-2xl"></i>
+                <!-- Descripción personal y profesional -->
+                <div class="flex-1 space-y-5 text-gray-700 leading-relaxed">
+                    <p class="text-lg font-medium text-[#6B4E71]">✨ Psicóloga apasionada por el bienestar emocional ✨</p>
+                    <p>Soy <strong>Paula Andrea Serna Restrepo</strong>, psicóloga graduada en 2024 de la <strong>Universidad Católica Luis Amigo de Medellín</strong>. Mi formación me ha brindado herramientas basadas en la evidencia científica, pero siempre con un enfoque humano, cálido y libre de juicios.</p>
+                    <p>Creo firmemente en el poder transformador de un espacio terapéutico seguro, donde puedas explorar tus emociones, entender tus patrones y construir una vida con mayor bienestar y autenticidad. Mi objetivo es acompañarte con respeto, empatía y compromiso, adaptando cada sesión a tus necesidades únicas.</p>
+                    <p>Actualmente atiendo a adolescentes, adultos y personas en procesos de crecimiento personal, manejo de ansiedad, autoestima, duelos y transiciones vitales. <strong>Estoy aquí para caminar contigo hacia tu mejor versión.</strong></p>
+                    <div class="flex flex-wrap gap-3 pt-3">
+                        <span class="bg-[#F5EDE6] rounded-full px-4 py-2 text-sm font-medium"><i class="fas fa-hand-holding-heart mr-1 text-[#A97C9E]"></i> Escucha activa</span>
+                        <span class="bg-[#F5EDE6] rounded-full px-4 py-2 text-sm font-medium"><i class="fas fa-chalkboard-user mr-1 text-[#A97C9E]"></i> Terapia Integrativa</span>
+                        <span class="bg-[#F5EDE6] rounded-full px-4 py-2 text-sm font-medium"><i class="fas fa-smile mr-1 text-[#A97C9E]"></i> Acompañamiento respetuoso</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- RESERVAS SECTION -->
-        <section id="reservas" class="py-24 bg-white relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#F5F3FF]/50 to-white opacity-50 pointer-events-none"></div>
-            <div class="absolute top-40 right-20 w-64 h-64 bg-[#A78BFA] rounded-full blur-3xl opacity-20 pointer-events-none"></div>
-            
-            <div class="max-w-4xl mx-auto px-5 relative z-10">
-                <div class="text-center mb-12 reveal">
-                    <h2 class="text-4xl md:text-5xl font-bold gradient-text font-elegant mb-4">Agenda tu cita</h2>
-                    <div class="w-24 h-1 bg-gradient-to-r from-[#7C3AED] via-[#EC4899] to-[#06B6D4] mx-auto rounded-full"></div>
-                    <p class="text-[#1E1B4B]/60 mt-6 italic text-lg">Reserva tu sesión de forma rápida y sencilla</p>
+    <!-- SERVICES SECTION -->
+    <section id="servicios" class="py-16 md:py-24 bg-[#FEFAF5]">
+        <div class="max-w-6xl mx-auto px-5 md:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 inline-block border-b-4 border-[#E5CFBF] pb-2">Mis servicios</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Acompañamiento psicológico personalizado para que encuentres bienestar en cada etapa</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl p-6 shadow-md card-hover transition-all border border-[#F3E9E1]">
+                    <div class="w-14 h-14 bg-[#F4E8E0] rounded-2xl flex items-center justify-center mb-5">
+                        <i class="fas fa-user-friends text-2xl text-[#8F6E7E]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Terapia Individual</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Espacio uno a uno para explorar emociones, superar bloqueos y fortalecer tu autoconocimiento.</p>
                 </div>
-                
-                <div class="bg-gradient-to-br from-[#F5F3FF] to-[#FDF2F8] rounded-[2.5rem] shadow-xl p-8 md:p-12 border border-[#7C3AED]/10 reveal reveal-delay-1">
-                    <form id="reservaForm" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="res_nombre" class="block text-[#1E1B4B] font-semibold mb-2 text-sm">Nombre completo *</label>
-                                <input type="text" id="res_nombre" name="nombre" required placeholder="Tu nombre">
-                            </div>
-                            <div>
-                                <label for="res_email" class="block text-[#1E1B4B] font-semibold mb-2 text-sm">Correo electrónico *</label>
-                                <input type="email" id="res_email" name="email" required placeholder="tucorreo@ejemplo.com">
-                            </div>
-                        </div>
-                        
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl p-6 shadow-md card-hover transition-all border border-[#F3E9E1]">
+                    <div class="w-14 h-14 bg-[#F4E8E0] rounded-2xl flex items-center justify-center mb-5">
+                        <i class="fas fa-brain text-2xl text-[#8F6E7E]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Manejo de Ansiedad</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Técnicas basadas en evidencia para regular la ansiedad, el estrés y recuperar tu calma interior.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl p-6 shadow-md card-hover transition-all border border-[#F3E9E1]">
+                    <div class="w-14 h-14 bg-[#F4E8E0] rounded-2xl flex items-center justify-center mb-5">
+                        <i class="fas fa-heartbeat text-2xl text-[#8F6E7E]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Autoestima & Crecimiento</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Fortalece tu confianza, autoimagen y desarrolla herramientas para vivir con mayor plenitud.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-white rounded-2xl p-6 shadow-md card-hover transition-all border border-[#F3E9E1]">
+                    <div class="w-14 h-14 bg-[#F4E8E0] rounded-2xl flex items-center justify-center mb-5">
+                        <i class="fas fa-children text-2xl text-[#8F6E7E]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Apoyo Adolescente</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Acompañamiento en crisis, transiciones y desafíos propios de la adolescencia con empatía.</p>
+                </div>
+                <!-- Card 5: Orientación Vocacional -->
+                <div class="bg-white rounded-2xl p-6 shadow-md card-hover transition-all border border-[#F3E9E1]">
+                    <div class="w-14 h-14 bg-[#F4E8E0] rounded-2xl flex items-center justify-center mb-5">
+                        <i class="fas fa-compass text-2xl text-[#8F6E7E]"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Orientación Vocacional</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Acompañamiento profesional para jóvenes y adultos en la toma de decisiones académicas y laborales.</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#contacto" class="inline-flex items-center gap-2 bg-[#A97C9E] text-white px-7 py-3 rounded-full font-semibold shadow-md hover:bg-[#8F6E7E] transition-all duration-200">
+                    Solicita más información <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESERVAS / CITAS SECTION -->
+    <section id="reservas" class="py-16 md:py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-5 md:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 inline-block border-b-4 border-[#E5CFBF] pb-2">Agenda tu cita</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Reserva tu sesión de forma rápida y sencilla. Elige el día y la hora que mejor se adapte a ti.</p>
+            </div>
+            <div class="max-w-3xl mx-auto bg-[#FEF8F2] rounded-2xl shadow-lg p-6 md:p-10 border border-[#F0E5DE]">
+                <form id="reservaForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <div>
-                            <label for="res_telefono" class="block text-[#1E1B4B] font-semibold mb-2 text-sm">Teléfono / WhatsApp *</label>
-                            <input type="tel" id="res_telefono" name="telefono" required placeholder="305 353 6173">
+                            <label for="res_nombre" class="block text-gray-700 font-medium mb-1">Nombre completo *</label>
+                            <input type="text" id="res_nombre" name="nombre" required 
+                                   class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#A97C9E] focus:border-transparent transition outline-none"
+                                   placeholder="Tu nombre">
                         </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="res_fecha" class="block text-[#1E1B4B] font-semibold mb-2 text-sm">Fecha *</label>
-                                <input type="date" id="res_fecha" name="fecha" required>
-                            </div>
-                            <div>
-                                <label for="res_hora" class="block text-[#1E1B4B] font-semibold mb-2 text-sm">Hora *</label>
-                                <select id="res_hora" name="hora" required>
-                                    <option value="">Selecciona una hora</option>
-                                    <option value="08:00">08:00 AM</option>
-                                    <option value="09:00">09:00 AM</option>
-                                    <option value="10:00">10:00 AM</option>
-                                    <option value="11:00">11:00 AM</option>
-                                    <option value="12:00">12:00 PM</option>
-                                    <option value="14:00">02:00 PM</option>
-                                    <option value="15:00">03:00 PM</option>
-                                    <option value="16:00">04:00 PM</option>
-                                    <option value="17:00">05:00 PM</option>
-                                    <option value="18:00">06:00 PM</option>
-                                </select>
-                            </div>
-                        </div>
-                        
                         <div>
-                            <label for="res_modalidad" class="block text-[#1E1B4B] font-semibold mb-2 text-sm">Modalidad *</label>
-                            <select id="res_modalidad" name="modalidad" required>
-                                <option value="">Selecciona una opción</option>
-                                <option value="presencial">Presencial en Medellín</option>
-                                <option value="online">Online (vía videollamada)</option>
+                            <label for="res_email" class="block text-gray-700 font-medium mb-1">Correo electrónico *</label>
+                            <input type="email" id="res_email" name="email" required 
+                                   class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#A97C9E] focus:border-transparent transition outline-none"
+                                   placeholder="tucorreo@ejemplo.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="res_telefono" class="block text-gray-700 font-medium mb-1">Teléfono / WhatsApp *</label>
+                        <input type="tel" id="res_telefono" name="telefono" required 
+                               class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#A97C9E] focus:border-transparent transition outline-none"
+                               placeholder="300 000 0000">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label for="res_fecha" class="block text-gray-700 font-medium mb-1">Fecha *</label>
+                            <input type="date" id="res_fecha" name="fecha" required 
+                                   class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#A97C9E] focus:border-transparent transition outline-none">
+                        </div>
+                        <div>
+                            <label for="res_hora" class="block text-gray-700 font-medium mb-1">Hora *</label>
+                            <select id="res_hora" name="hora" required 
+                                    class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#A97C9E] focus:border-transparent transition outline-none bg-white">
+                                <option value="">Selecciona una hora</option>
+                                <option value="08:00">08:00 AM</option>
+                                <option value="09:00">09:00 AM</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="14:00">02:00 PM</option>
+                                <option value="15:00">03:00 PM</option>
+                                <option value="16:00">04:00 PM</option>
+                                <option value="17:00">05:00 PM</option>
+                                <option value="18:00">06:00 PM</option>
                             </select>
                         </div>
-                        
-                        <div>
-                            <label for="res_mensaje" class="block text-[#1E1B4B] font-semibold mb-2 text-sm">Mensaje adicional (opcional)</label>
-                            <textarea id="res_mensaje" name="mensaje" rows="3" placeholder="Cuéntame qué te gustaría trabajar en la sesión..."></textarea>
+                    </div>
+                    <div>
+                        <label for="res_modalidad" class="block text-gray-700 font-medium mb-1">Modalidad *</label>
+                        <select id="res_modalidad" name="modalidad" required 
+                                class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#A97C9E] focus:border-transparent transition outline-none bg-white">
+                            <option value="">Selecciona una opción</option>
+                            <option value="presencial">Presencial en Medellín</option>
+                            <option value="online">Online (vía videollamada)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="res_mensaje" class="block text-gray-700 font-medium mb-1">Mensaje adicional (opcional)</label>
+                        <textarea id="res_mensaje" name="mensaje" rows="3"
+                                  class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#A97C9E] focus:border-transparent transition outline-none"
+                                  placeholder="Cuéntame qué te gustaría trabajar en la sesión..."></textarea>
+                    </div>
+                    <button type="submit" 
+                            class="w-full bg-[#25D366] hover:bg-[#1da15a] text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all shadow-md">
+                        <i class="fab fa-whatsapp text-xl"></i> Reservar cita por WhatsApp
+                    </button>
+                    <p class="text-xs text-gray-400 text-center mt-3">Al enviar, se abrirá WhatsApp con los detalles de tu reserva. Recibirás confirmación de Paula.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contacto" class="py-16 md:py-24 bg-[#FEFAF5]">
+        <div class="max-w-6xl mx-auto px-5 md:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 inline-block border-b-4 border-[#E5CFBF] pb-2">Contacto</h2>
+                <p class="text-gray-600 mt-4">¿Listo para dar el primer paso? Escríbeme o llámame, estaré encantada de atenderte.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Info de contacto directo -->
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-[#F0E5DE]">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4"><i class="fas fa-phone-alt text-[#A97C9E] mr-2"></i> Comunícate conmigo</h3>
+                    <div class="space-y-5">
+                        <div class="flex items-center gap-4 flex-wrap">
+                            <div class="bg-[#F4E8E0] p-3 rounded-full shadow-sm">
+                                <i class="fab fa-whatsapp text-2xl text-[#25D366]"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">WhatsApp</p>
+                                <a href="https://wa.me/573053536173?text=Hola%20Paula%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20o%20tener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tus%20servicios%20de%20psicolog%C3%ADa." 
+                                   target="_blank" class="text-[#25D366] font-medium text-lg hover:underline">+57 305 353 6173</a>
+                            </div>
                         </div>
-                        
-                        <button type="submit" class="w-full btn-wa font-bold py-4 rounded-2xl flex items-center justify-center gap-2 shadow-lg text-lg">
-                            <i class="fab fa-whatsapp text-xl"></i> Reservar cita por WhatsApp
+                        <div class="flex items-center gap-4 flex-wrap">
+                            <div class="bg-[#F4E8E0] p-3 rounded-full shadow-sm">
+                                <i class="fas fa-phone text-2xl text-[#4F6F8F]"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Llamada telefónica</p>
+                                <a href="tel:+573053536163" class="text-gray-700 font-medium text-lg hover:text-[#4F6F8F]">+57 305 353 6163</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 flex-wrap">
+                            <div class="bg-[#F4E8E0] p-3 rounded-full shadow-sm">
+                                <i class="fas fa-envelope text-2xl text-[#A97C9E]"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Correo electrónico</p>
+                                <a href="mailto:aspsico@oulook.es" class="text-gray-700 font-medium text-lg hover:text-[#A97C9E]">aspsico@oulook.es</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="bg-[#F4E8E0] p-3 rounded-full shadow-sm">
+                                <i class="fas fa-map-marker-alt text-2xl text-[#A97C9E]"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Atención</p>
+                                <p class="text-gray-600">📍 Medellín, Colombia <br> 🌐 Sesiones online para todo el país</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="bg-[#F4E8E0] p-3 rounded-full shadow-sm">
+                                <i class="fas fa-clock text-2xl text-[#8FB09E]"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Horarios flexibles</p>
+                                <p class="text-gray-600">Lunes a viernes: 8:00am - 7:00pm / Sábados con cita previa</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 bg-[#EEDFCF] rounded-xl p-4 text-center">
+                        <p class="text-gray-800 font-medium"><i class="fas fa-graduation-cap mr-1"></i> Universidad Católica Luis Amigo · Promoción 2024</p>
+                        <p class="text-sm text-gray-600 mt-1">Profesional Independiente · Ética y compromiso</p>
+                    </div>
+                </div>
+
+                <!-- Formulario de contacto rápido -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-[#F0E5DE]">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2"><i class="fas fa-envelope-open-text text-[#A97C9E] mr-2"></i> Escríbeme directamente</h3>
+                    <p class="text-gray-500 text-sm mb-5">Diligencia el formulario y te responderé por WhatsApp a la brevedad</p>
+                    <form id="whatsappForm" class="space-y-5">
+                        <div>
+                            <label for="nombre" class="block text-gray-700 font-medium mb-1">Tu nombre completo *</label>
+                            <input type="text" id="nombre" name="nombre" required 
+                                   class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#A97C9E] focus:border-transparent transition outline-none"
+                                   placeholder="Ej: Laura Gómez">
+                        </div>
+                        <div>
+                            <label for="telefono_opcional" class="block text-gray-700 font-medium mb-1">Teléfono (opcional)</label>
+                            <input type="tel" id="telefono_opcional" name="telefono" 
+                                   class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#A97C9E] focus:border-transparent transition outline-none"
+                                   placeholder="Tu número para contacto rápido">
+                        </div>
+                        <div>
+                            <label for="mensaje" class="block text-gray-700 font-medium mb-1">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" rows="3" required
+                                      class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#A97C9E] focus:border-transparent transition outline-none"
+                                      placeholder="Cuéntame qué te gustaría consultar, agendar cita o preguntar..."></textarea>
+                        </div>
+                        <button type="submit" 
+                                class="w-full bg-[#25D366] hover:bg-[#1da15a] text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all shadow-md">
+                            <i class="fab fa-whatsapp text-xl"></i> Enviar mensaje por WhatsApp
                         </button>
-                        <p class="text-xs text-[#1E1B4B]/40 text-center mt-3">Al enviar, se abrirá WhatsApp con los detalles de tu reserva.</p>
+                        <p class="text-xs text-gray-400 text-center mt-3">Al enviar, se abrirá WhatsApp con tu mensaje listo. ¡Sin compromiso!</p>
                     </form>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- CONTACT SECTION -->
-        <section id="contacto" class="py-24 bg-gradient-to-b from-[#FDF2F8] to-[#F5F3FF] relative overflow-hidden">
-            <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#67E8F9] rounded-full blur-3xl opacity-20 pointer-events-none"></div>
-            
-            <div class="max-w-6xl mx-auto px-5 relative z-10">
-                <div class="text-center mb-16 reveal">
-                    <h2 class="text-4xl md:text-5xl font-bold gradient-text font-elegant mb-4">Contacto</h2>
-                    <div class="w-24 h-1 bg-gradient-to-r from-[#7C3AED] via-[#EC4899] to-[#06B6D4] mx-auto rounded-full"></div>
-                    <p class="text-[#1E1B4B]/60 mt-6 italic text-lg">Estoy aquí para escucharte</p>
-                </div>
-                
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <div class="bg-white/90 backdrop-blur-sm rounded-[2.5rem] p-8 shadow-xl border border-[#7C3AED]/10 reveal reveal-delay-1">
-                        <h3 class="text-2xl font-bold text-[#1E1B4B] mb-8 font-elegant"><i class="fas fa-heart text-[#EC4899] mr-3"></i>Comunícate conmigo</h3>
-                        <div class="space-y-8">
-                            <div class="flex items-center gap-5">
-                                <div class="bg-gradient-to-br from-[#10B981] to-[#059669] p-4 rounded-2xl shadow-lg">
-                                    <i class="fab fa-whatsapp text-3xl text-white"></i>
-                                </div>
-                                <div>
-                                    <p class="font-semibold text-[#1E1B4B] text-sm uppercase tracking-wide">WhatsApp</p>
-                                    <a href="https://wa.me/573053536173" target="_blank" rel="noopener noreferrer" class="text-[#059669] font-bold text-xl hover:underline">+57 305 353 6173</a>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-5">
-                                <div class="bg-gradient-to-br from-[#7C3AED] to-[#A78BFA] p-4 rounded-2xl shadow-lg">
-                                    <i class="fas fa-envelope text-3xl text-white"></i>
-                                </div>
-                                <div>
-                                    <p class="font-semibold text-[#1E1B4B] text-sm uppercase tracking-wide">Correo electrónico</p>
-                                    <a href="mailto:aspsico@oulook.es" class="text-[#7C3AED] font-bold text-xl hover:underline">aspsico@oulook.es</a>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-5">
-                                <div class="bg-gradient-to-br from-[#EC4899] to-[#F9A8D4] p-4 rounded-2xl shadow-lg">
-                                    <i class="fas fa-map-marker-alt text-3xl text-white"></i>
-                                </div>
-                                <div>
-                                    <p class="font-semibold text-[#1E1B4B] text-sm uppercase tracking-wide">Atención</p>
-                                    <p class="text-[#1E1B4B]/70 text-lg">📍 Medellín, Colombia <br> 🌐 Sesiones online para todo el país</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white/90 backdrop-blur-sm rounded-[2.5rem] shadow-xl p-8 border border-[#7C3AED]/10 reveal reveal-delay-2">
-                        <h3 class="text-2xl font-bold text-[#1E1B4B] mb-2 font-elegant"><i class="fas fa-envelope-open-text text-[#EC4899] mr-3"></i>Escríbeme</h3>
-                        <p class="text-[#1E1B4B]/50 text-sm mb-8">Diligencia el formulario y te responderé por WhatsApp.</p>
-                        <form id="whatsappForm" class="space-y-6">
-                            <div>
-                                <label for="nombre" class="block text-[#1E1B4B] font-semibold mb-2 text-sm">Tu nombre *</label>
-                                <input type="text" id="nombre" name="nombre" required placeholder="Ej: Laura Gómez">
-                            </div>
-                            <div>
-                                <label for="mensaje" class="block text-[#1E1B4B] font-semibold mb-2 text-sm">Mensaje *</label>
-                                <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Cuéntame qué te gustaría consultar..."></textarea>
-                            </div>
-                            <button type="submit" class="w-full btn-wa font-bold py-4 rounded-2xl flex items-center justify-center gap-2 shadow-lg text-lg">
-                                <i class="fab fa-whatsapp text-xl"></i> Enviar mensaje
-                            </button>
-                        </form>
-                    </div>
-                </div>
+    <!-- FOOTER -->
+    <footer class="bg-[#FCF7F2] border-t border-[#EADBCE] py-10">
+        <div class="max-w-6xl mx-auto px-5 md:px-8 text-center">
+            <div class="flex flex-wrap justify-center gap-5 mb-5">
+                <a href="https://wa.me/573053536173" target="_blank" class="text-gray-500 hover:text-[#25D366] transition"><i class="fab fa-whatsapp text-xl"></i></a>
+                <a href="tel:+573053536163" class="text-gray-500 hover:text-[#4F6F8F] transition"><i class="fas fa-phone-alt text-xl"></i></a>
+                <a href="mailto:aspsico@oulook.es" class="text-gray-500 hover:text-[#A97C9E] transition"><i class="fas fa-envelope text-xl"></i></a>
             </div>
-        </section>
-
-    </div><!-- /.content-wrapper -->
-
-    <!-- FOOTER MODERNO -->
-    <footer class="footer-modern">
-        <div class="max-w-6xl mx-auto px-5 relative z-10">
-            
-            <div class="flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-16 mb-12">
-                <div class="flex-1 text-center lg:text-left">
-                    <div class="flex items-center justify-center lg:justify-start gap-4 mb-6">
-                        <i class="fas fa-spa text-5xl text-[#A78BFA] logo-glow"></i>
-                        <div>
-                            <h3 class="text-3xl font-bold font-elegant text-white">Paula Andrea</h3>
-                            <p class="text-xs text-[#A78BFA] tracking-[0.3em] uppercase font-semibold">Psicóloga</p>
-                        </div>
-                    </div>
-                    <p class="text-[#E0E7FF]/60 text-base leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
-                        Acompañamiento psicológico con calidez, ética y profesionalismo. Un espacio seguro para tu bienestar emocional en Medellín y online para toda Colombia.
-                    </p>
-
-
-
-
-
-            <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-10">
-                <a href="#inicio" class="footer-link">Inicio</a>
-                <a href="#sobre-mi" class="footer-link">Sobre mí</a>
-                <a href="#servicios" class="footer-link">Servicios</a>
-                <a href="#reservas" class="footer-link">Reservas</a>
-                <a href="#contacto" class="footer-link">Contacto</a>
-            </div>
-
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#E0E7FF]/40 text-center md:text-left">
-                <p>© 2025 Psicóloga Paula Andrea Serna Restrepo. Todos los derechos reservados.</p>
-                <p class="flex items-center gap-2">
-                    <i class="fas fa-map-pin text-[#A78BFA]"></i> Medellín, Colombia 
-                    <span class="text-[#A78BFA]">|</span> 
-                    Universidad Católica Luis Amigó
+            <p class="text-gray-500 text-sm">© 2025 Psicóloga Paula Andrea Serna Restrepo | Universidad Católica Luis Amigo - Medellín</p>
+            <p class="text-gray-400 text-xs mt-2">Cuidado integral · Acompañamiento psicológico con calidez y profesionalismo</p>
+            <div class="mt-6 pt-4 border-t border-[#EADBCE] inline-block">
+                <p class="text-sm text-gray-500 flex items-center justify-center gap-2 flex-wrap">
+                    <span class="bg-white/50 rounded-full px-3 py-1 shadow-sm">✨</span>
+                    <span>Desarrollado con 💜 por</span>
+                    <a href="https://whiatcompany.lat" target="_blank" rel="noopener noreferrer" class="font-semibold text-[#A97C9E] hover:text-[#6B4E71] transition underline decoration-dotted underline-offset-2">whiatcompany.lat</a>
+                    <span class="bg-white/50 rounded-full px-3 py-1 shadow-sm">🚀</span>
                 </p>
-            </div>
-
-            <div class="mt-8 flex justify-center">
-                <div class="love-badge">
-                    <span class="text-xs text-[#E0E7FF]/50">Desarrollado con</span>
-                    <i class="fas fa-heart text-[#EC4899] animate-pulse"></i>
-                    <span class="text-xs text-[#E0E7FF]/50">por</span>
-                    <a href="https://whiatcompany.lat" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-white hover:text-[#A78BFA] transition underline decoration-dotted underline-offset-2">whiatcompany.lat</a>
-                </div>
+                <p class="text-xs text-gray-400 mt-1">Hecho con esmero para conectar personas con bienestar emocional</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // --- BLOQUEO DE CLIC DERECHO E INSPECCIÓN ---
+        // ==========================================
+        // MEDIDAS DE SEGURIDAD ANTI-INSPECCIÓN
+        // ==========================================
+        
+        // 1. Deshabilitar el clic derecho (Menú contextual)
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
-            alert('El clic derecho está deshabilitado para proteger el contenido de esta página.');
         });
 
+        // 2. Deshabilitar atajos de teclado comunes para inspeccionar
         document.addEventListener('keydown', function(e) {
+            // F12
             if (e.key === 'F12' || e.keyCode === 123) {
                 e.preventDefault();
-                alert('La inspección de código está deshabilitada.');
                 return false;
             }
-            if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) {
+            
+            // Ctrl+Shift+I (Inspeccionar)
+            if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.keyCode === 73)) {
                 e.preventDefault();
-                alert('La inspección de código está deshabilitada.');
                 return false;
             }
-            if (e.ctrlKey && (e.key === 'U' || e.key === 'u')) {
+
+            // Ctrl+Shift+J (Consola)
+            if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j' || e.keyCode === 74)) {
                 e.preventDefault();
-                alert('La visualización del código fuente está deshabilitada.');
+                return false;
+            }
+
+            // Ctrl+U (Ver código fuente)
+            if (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.keyCode === 85)) {
+                e.preventDefault();
+                return false;
+            }
+
+            // Ctrl+S (Guardar página)
+            if (e.ctrlKey && (e.key === 'S' || e.key === 's' || e.keyCode === 83)) {
+                e.preventDefault();
                 return false;
             }
         });
 
-        document.addEventListener('selectstart', function(e) {
-            e.preventDefault();
-        });
+        // ==========================================
+        // FUNCIONALIDAD DE FORMULARIOS
+        // ==========================================
 
-        // --- SCRIPT PARA ANIMACIONES AL SCROLL ---
-        document.addEventListener('DOMContentLoaded', function() {
-            const reveals = document.querySelectorAll('.reveal');
-
-            const revealOnScroll = () => {
-                const windowHeight = window.innerHeight;
-                const elementVisible = 100;
-
-                reveals.forEach(reveal => {
-                    const elementTop = reveal.getBoundingClientRect().top;
-                    if (elementTop < windowHeight - elementVisible) {
-                        reveal.classList.add('active');
-                    }
-                });
-            };
-
-            window.addEventListener('scroll', revealOnScroll);
-            revealOnScroll();
-        });
-
-        // --- FORMULARIO DE CONTACTO ---
+        // Formulario de contacto que envía a WhatsApp
         const form = document.getElementById('whatsappForm');
         if(form) {
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const nombre = document.getElementById('nombre')?.value.trim() || '';
+                const telefono = document.getElementById('telefono_opcional')?.value.trim() || '';
                 let mensaje = document.getElementById('mensaje')?.value.trim() || '';
 
-                if(!nombre || !mensaje) {
-                    alert('Por favor, completa los campos requeridos.');
+                if(!nombre) {
+                    alert('Por favor, ingresa tu nombre para poder atenderte mejor.');
+                    return;
+                }
+                if(!mensaje) {
+                    alert('Por favor, escribe un mensaje para enviar tu consulta.');
                     return;
                 }
 
-                let texto = `Hola, soy ${nombre}. %0A%0A`;
-                texto += `Mensaje: ${mensaje}%0A%0A`;
-                texto += `✨ Enviado desde la página web.`;
+                let textoPersonalizado = `Hola, soy ${nombre}. `;
+                if(telefono) textoPersonalizado += `Mi teléfono es ${telefono}. `;
+                textoPersonalizado += `Me comunico para: ${mensaje}`;
+                textoPersonalizado += `%0A%0A✨ *Información adicional:* Me gustaría agendar una cita o recibir orientación. %0A¡Gracias!`;
 
-                const url = `https://wa.me/573053536173?text=${encodeURIComponent(texto)}`;
-                window.open(url, '_blank', 'noopener,noreferrer');
-                alert('✅ Mensaje preparado. Se abrirá WhatsApp.');
-                form.reset();
+                const textoCodificado = encodeURIComponent(textoPersonalizado);
+                const numeroWhatsApp = '573053536173';
+                const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${textoCodificado}`;
+                
+                window.open(urlWhatsApp, '_blank');
+                alert('✅ Mensaje preparado. Se abrirá WhatsApp para que envíes la consulta directamente a Paula.');
             });
         }
 
-        // --- FORMULARIO DE RESERVA ---
+        // Formulario de reserva de citas
         const reservaForm = document.getElementById('reservaForm');
         if(reservaForm) {
             reservaForm.addEventListener('submit', function(e) {
@@ -1252,45 +584,43 @@
                 const mensaje = document.getElementById('res_mensaje')?.value.trim() || '';
 
                 if(!nombre || !email || !telefono || !fecha || !hora || !modalidad) {
-                    alert('Por favor, completa todos los campos obligatorios.');
+                    alert('Por favor, completa todos los campos obligatorios para reservar tu cita.');
                     return;
                 }
 
+                // Formatear fecha para mejor legibilidad
                 const fechaObj = new Date(fecha + 'T00:00:00');
-                const fechaFormateada = fechaObj.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
-                const modalidadTexto = modalidad === 'presencial' ? 'Presencial en Medellín' : 'Online';
-                
-                let texto = `📅 *Nueva Reserva de Cita* 📅%0A%0A`;
-                texto += `👤 *Nombre:* ${nombre}%0A`;
-                texto += `📧 *Correo:* ${email}%0A`;
-                texto += `📱 *Teléfono:* ${telefono}%0A`;
-                texto += `📆 *Fecha:* ${fechaFormateada}%0A`;
-                texto += `🕐 *Hora:* ${hora}%0A`;
-                texto += `📍 *Modalidad:* ${modalidadTexto}%0A`;
-                if(mensaje) texto += `📝 *Mensaje:* ${mensaje}%0A`;
-                texto += `%0A🙏 ¡Espero confirmación!`;
+                const fechaFormateada = fechaObj.toLocaleDateString('es-ES', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
 
-                const url = `https://wa.me/573053536173?text=${encodeURIComponent(texto)}`;
-                window.open(url, '_blank', 'noopener,noreferrer');
-                alert('✅ Reserva enviada. Se abrirá WhatsApp para confirmar.');
+                const modalidadTexto = modalidad === 'presencial' ? 'Presencial en Medellín' : 'Online (videollamada)';
+                
+                let textoPersonalizado = `📅 *Nueva reserva de cita* 📅%0A%0A`;
+                textoPersonalizado += `👤 *Nombre:* ${nombre}%0A`;
+                textoPersonalizado += `📧 *Correo:* ${email}%0A`;
+                textoPersonalizado += `📱 *Teléfono:* ${telefono}%0A`;
+                textoPersonalizado += `📆 *Fecha:* ${fechaFormateada}%0A`;
+                textoPersonalizado += `🕐 *Hora:* ${hora}%0A`;
+                textoPersonalizado += `📍 *Modalidad:* ${modalidadTexto}%0A`;
+                if(mensaje) textoPersonalizado += `📝 *Mensaje:* ${mensaje}%0A`;
+                textoPersonalizado += `%0A🙏 ¡Espero confirmación de mi cita, gracias!`;
+
+                const textoCodificado = encodeURIComponent(textoPersonalizado);
+                const numeroWhatsApp = '573053536173';
+                const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${textoCodificado}`;
+                
+                window.open(urlWhatsApp, '_blank');
+                alert('✅ Reserva enviada. Se abrirá WhatsApp para que confirmes los detalles con Paula.');
+                
+                // Resetear el formulario
                 reservaForm.reset();
             });
         }
 
-        // --- FORMULARIO NEWSLETTER (SIMULADO) ---
-        const newsletterForm = document.getElementById('newsletterForm');
-        if(newsletterForm) {
-            newsletterForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = document.getElementById('news_email')?.value.trim();
-                if(email) {
-                    alert(`✅ ¡Gracias por suscribirte! Te hemos añadido a nuestra lista con el correo: ${email}`);
-                    newsletterForm.reset();
-                }
-            });
-        }
-
-        // --- SCROLL SUAVE ---
+        // Navegación suave
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
@@ -1303,7 +633,7 @@
             });
         });
 
-        // --- FECHA MÍNIMA HOY ---
+        // Establecer fecha mínima para el input de fecha (hoy)
         const fechaInput = document.getElementById('res_fecha');
         if(fechaInput) {
             const hoy = new Date();
